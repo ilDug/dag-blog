@@ -1,0 +1,17 @@
+# FROM nginx
+# WORKDIR /app
+
+# # cartella delle configurazioni
+# COPY ./config/nginx/ /etc/nginx/conf.d/
+
+# # cartelle del sito
+# COPY ./web/vendor /app/vendor 
+# COPY ./web/lib /app/lib 
+
+# COPY ./web/index.php /app/index.php 
+# COPY ./web/pages /app/pages 
+# COPY ./web/dist /app/dist 
+
+# EXPOSE 80
+
+# # CMD ["nginx", "-g", "daemon off;"]

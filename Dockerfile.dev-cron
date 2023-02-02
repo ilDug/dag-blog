@@ -1,0 +1,10 @@
+# FROM python:3.10
+# WORKDIR /app
+# EXPOSE 8000
+# COPY ./api/requirements.txt ./
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# ENV IG_CHECK_FREQ=60
+# ENV IG_RENEW_FREQ=43200 
+# CMD [ "python", "-u",  "./cron.py" ]
+# # la -u è per mostrare i print nel log (UNBUFFERED=1)
