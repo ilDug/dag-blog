@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Ubuntu&display=swap');
+
+@import "variables";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/regular.scss";
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/light.scss";
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/thin.scss";
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/duotone.scss";
+@import "../node_modules/@fortawesome/fontawesome-pro/scss/_duotone-icons.scss";
+
+@import "material";
+
