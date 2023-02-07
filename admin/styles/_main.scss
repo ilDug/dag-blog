@@ -13,4 +13,9 @@ body {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+    color: $gray-500;
+}
+#toolbar{
+    display: block;
+    height: 4rem;
 }
