@@ -1,0 +1,14 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background: $gray-700;
+}
+
+#main-container{
+  padding:1rem;
+
+}
