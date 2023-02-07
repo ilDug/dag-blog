@@ -1,0 +1,93 @@
+<div class="container ">
+
+    <div class="row">
+        <div class="col">
+            <h1>Admin</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+
+        <div class="col-md-6 mt-3">
+
+            <div class="text-center">
+                <span id="logopb" class="mb-3">
+                    <img src="assets/logo-looko.png" alt="" class="img-fluid">
+                </span>
+                <h1 class="title-lined">Account</h1>
+                <h3>Accedi</h3>
+            </div>
+
+            <ng-container *ngIf="error else noerror">
+                <div class="dag-alert danger"> {{error}} </div>
+            </ng-container>
+
+            <ng-template #noerror><small class="text-muted">inserisci i dati per accedere</small></ng-template>
+
+
+            <form [formGroup]="form">
+
+                <div id="input-box">
+                    <mat-form-field class="w-100">
+                        <input matInput type="email" name="email" id="login-email-input" placeholder="email" formControlName="email">
+                        <span matSuffix><i class="fal fa-envelope"></i></span>
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100">
+                        <input matInput type="password" name="password" id="login-password-input" placeholder="password" formControlName="password">
+                        <span matSuffix><i class="fal fa-lock"></i></span>
+                    </mat-form-field>
+
+
+                    <p class="text-right">
+                        <button mat-raised-button color="primary" (click)="login()">
+
+                            <ng-container *ngIf="!form.controls.email.pending else loginLoader">
+                                Accedi <i class="far fa-sign-in ml-2"></i>
+                            </ng-container>
+
+                            <ng-template #loginLoader>
+                                <span style="display: inline-block;">
+                                    <mat-spinner color="accent" diameter="20"></mat-spinner>
+                                </span> wait...
+                            </ng-template>
+                        </button>
+                    </p>
+                </div>
+
+                <ng-container id="error-box">
+
+                    <div dagErrors="email">
+                        <div class="dag-alert warn" dagError="required" when="touched">Non dimenticare di inserire l'indirizzo
+                            email.</div>
+                        <div class="dag-alert warn" dagError="email" when="touched"> Ops, formato dell'email non corretto.</div>
+                    </div>
+                    <div dagErrors="password">
+                        <div class="dag-alert warn" dagError="required" when="touched">Non dimenticare di inserire la password.
+                        </div>
+                    </div>
+
+                </ng-container>
+
+            </form>
+
+
+            <hr>
+
+            <!-- <div class="text-muted">
+                <p>
+                    <small>
+                        Non hai un account? <a [routerLink]="['/register']">Registrati!</a>
+                    </small>
+                    <br>
+                    <small>
+                        Non ricordi la <a [routerLink]="['/recover-password']"> password </a>?
+                    </small>
+                </p>
+            </div> -->
+        </div>
+
+        <div class="col-md-3"></div>
+    </div>
+
+</div>
