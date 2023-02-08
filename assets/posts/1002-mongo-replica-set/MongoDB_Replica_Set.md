@@ -1,4 +1,5 @@
 ---
+
 publish: true
 code: 1002
 title: "Mongo Replica Set"
@@ -9,6 +10,7 @@ tags:
     - "mongo"
     - "replica"
     - "self-hosting"
+
 ---
 
 # MongoDB Replica Set

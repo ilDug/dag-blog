@@ -1,0 +1,24 @@
+{
+  "name": "ildug/php-utils",
+  "description": "Classes and utilities for Frontend/Backend PHP APIs",
+  "type": "library",
+  "version": "1.2.0",
+  "require": {
+    "lcobucci/jwt": "^4.1",
+    "lcobucci/clock": "^2.0",
+    "phpmailer/phpmailer": "^6.2",
+    "ramsey/uuid": "^4.1"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ilDug",
+      "email": "dognini.marco@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ilDug\\": "src/"
+    }
+  }
+}
