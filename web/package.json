@@ -27,6 +27,17 @@
         "url": "https://github.com/ilDug/dag-blog/issues"
     },
     "homepage": "https://github.com/ilDug/dag-blog#readme",
+    "dependencies": {
+        "@fortawesome/fontawesome-pro": "^6.3.0",
+        "@popperjs/core": "^2.11.6",
+        "animate.css": "^4.1.1",
+        "botstrap": "^0.20.1",
+        "lodash": "^4.17.21",
+        "react-dom": "^18.2.0",
+        "react-hook-form": "^7.43.1",
+        "rect": "^1.2.1",
+        "rxjs": "^7.8.0"
+    },
     "devDependencies": {
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^11.0.0",
