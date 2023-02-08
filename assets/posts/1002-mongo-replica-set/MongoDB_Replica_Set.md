@@ -1,3 +1,16 @@
+---
+publish: true
+code: 1002
+title: "Mongo Replica Set"
+date: "2023-02-01"
+url: "mongo-replica-set"
+author: "ilDug"
+tags:
+    - "mongo"
+    - "replica"
+    - "self-hosting"
+---
+
 # MongoDB Replica Set
 Creazione di un **Replica Set** su tre macchine virtuali diverse,  specificatamente CONTAINER di PROXMOX.
 
