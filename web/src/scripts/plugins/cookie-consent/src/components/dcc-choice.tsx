@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Choice: React.FC<Props> = ({ categories, onClose, onAccept }) => {
-    const [cats, setCats] = useState(categories);
+    const [cats, setCats] = useState<CookieCategories>(categories);
 
     const handleConsentChange = (category: string, consent: boolean) => {
         let c = { ...cats };
@@ -20,11 +20,11 @@ const Choice: React.FC<Props> = ({ categories, onClose, onAccept }) => {
     };
 
     const expressPreferences = (): CookiePreference => {
-        let prefereces: CookiePreference = {};
+        let preferences: CookiePreference = {};
         for (const cat in cats) {
-            prefereces[cat] = cats[cat].consent;
+            preferences[cat] = cats[cat].consent;
         }
-        return prefereces;
+        return preferences;
     };
 
     return (
