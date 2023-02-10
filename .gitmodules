@@ -1,6 +1,3 @@
-[submodule "assets/blog"]
-	path = assets/blog
-	url = ssh://git.dagtech.it:23231/dag-blog.git
 [submodule "web/src/scripts/plugins/cookie-consent"]
 	path = web/src/scripts/plugins/cookie-consent
 	url = https://github.com/ilDug/cookie-consent.git
