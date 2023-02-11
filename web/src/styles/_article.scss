@@ -1,0 +1,15 @@
+.page-content {
+    flex: 1 0 auto;
+
+    .container {
+        flex: 1 0 auto;
+    }
+}
+
+.article {
+    max-width: 600px;
+    margin: auto;
+    p {
+        font-size: 1.25rem;
+    }
+}

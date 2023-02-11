@@ -1,14 +1,14 @@
-$color-primary: rgb(248 ,154, 28);
-$color-accent: rgb(162, 1, 125);
+$color-primary: rgb(118, 92, 142);
+$color-secondary: rgb(163, 0, 125);
 $color-vibrant: rgb(191, 215 ,36);
-$color-dark: rgb(60, 67, 70);
+$color-dark: #3c4346;
 
 
-$blue:    #0d6efd;
+$blue:    rgb(51, 100, 174);
 $indigo:  #6610f2;
 $purple:  #6f42c1;
 $pink:    #d63384;
-$red:     #dc3545;
+$red:     rgb(167, 83, 91);
 $orange:  #fd7e14;
 $yellow:  #ffc107;
 $green:   #198754;
@@ -28,14 +28,14 @@ $gray-900: #212529;
 $black:    #000;
 
 // scss-docs-start theme-color-variables
-$primary:       $blue;
-$secondary:     $gray-600;
+$primary:       $color-primary;
+$secondary:     $color-secondary;
 $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
 $danger:        $red;
 $light:         $gray-100;
-$dark:          $gray-900;
+$dark:          $color-dark;
 
 
 $theme-colors: (
@@ -49,7 +49,7 @@ $theme-colors: (
   "dark":       $dark
 );
 
-$body-bg:                   $white;
-$body-color:                $gray-900;
+$body-bg:                   lighten($color-dark, 10%);
+$body-color:                $gray-500;
 $link-color:                $primary;
 $link-decoration:           none;

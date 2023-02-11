@@ -24,8 +24,19 @@
 
 
 
-    <section id="home" class="mt-5">
-        <h1>DagBlog</h1>
+    <section id="home" class="page-content">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <article class="article">
+                        <h1>DagBlog - Come spedire una email via terminale con <span class="underlined">SSMTP</span></h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum recusandae assumenda distinctio, dolore totam reiciendis commodi repellat soluta quia rerum ipsum, necessitatibus corrupti fugiat mollitia saepe at, quidem nam inventore.</p>
+                    </article>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </div>
     </section>
 
 
