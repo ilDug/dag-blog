@@ -51,12 +51,6 @@
             </ul>
         </nav>
         <div id="header-actions">
-            <!-- <a href="/jobs" id="" class="header-action-btn text-info" data-toggle="tooltip" title="Cosa posso fare per te">
-                <i class="fal fa-bags-shopping"></i>
-            </a>
-            <a href="/map" id="header-cart-btn" class="header-action-btn text-success" data-toggle="tooltip" title="Dove trovarmi">
-                <i class="fal fa-map-marked-alt"></i>
-            </a> -->
             <a href="#" id="header-menu-btn" class="header-action-btn">
                 <i class="fal fa-bars"></i>
             </a>
@@ -66,22 +60,3 @@
         </div>
     </div>
 </header>
-
-
-<!-- SHOPPING CART MENU -->
-<!-- <div id="shopping-cart-menu" class="">
-    <a id="scm-close" href=><i class="fal fa-times"></i></a>
-    <div id="scm-empty">
-        <span><i class="fal fa-shopping-cart fa-3x"></i></span>
-        <p>carrello vuoto</p>
-    </div>
-</div> -->
-
-
-<!-- menu OEVERLAY -->
-<!-- <div id="menu-overlay">
-    <a href id="menu-o-close"><i class="fal fa-times fa-2x"></i></a>
-    <div>
-        <h1>ciao</h1>
-    </div>
-</div> -->

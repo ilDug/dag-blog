@@ -1,0 +1,203 @@
+$header-bg-color: $white;
+// $header-bg-color: $color-dark;
+// $header-bg-color: #394153;
+$header-height: 4rem;
+
+header {
+  display: block;
+
+  #header-wrap {
+    @include media-breakpoint-down(md) {
+      height: $header-height;
+    }
+
+    @include media-breakpoint-up(md) {
+      height: $header-height * 1.25;
+    }
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: $header-bg-color;
+    color: $dark;
+    height: 100%;
+  }
+
+  a,
+  a:hover {
+    color: $dark;
+    height: 100%;
+  }
+
+  /** LOGO ***********************************************************************************************************/
+  #header-logo {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+    padding: 0.75rem;
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+
+  /** NAVIGATION ***********************************************************************************************************/
+  nav {
+    flex: 1 0 auto;
+    padding: 1rem;
+    font-size: 0.8rem;
+    & > ul {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        text-indent: 0;
+        padding: 0 0.75rem;
+        i.icon {
+          display: none;
+        }
+      }
+    }
+
+    #menu-o-close {
+      display: none;
+    }
+
+    @include media-breakpoint-down(md) {
+      /**  OVERLAY  **/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: -100%;
+      left: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      background-color: rgba($gray-900, 0.95);
+      transition: all 1s ease;
+      z-index: 99999;
+
+      & a,
+      & a:hover {
+        color: $white;
+      }
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        bottom: 0;
+      }
+
+      #menu-o-close {
+        display: flex;
+        position: absolute;
+        top: 3rem;
+        left: 50%;
+        height: 3rem;
+        width: 3rem;
+        transform: translateX(-1.5rem);
+        background-color: rgb(248, 154, 28);
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      //   position: absolute;
+      //   top: 100%;
+      //   right: 0;
+      //   width: 0;
+      //   background-color: $header-bg-color;
+      //   padding: 0;
+      //   overflow: hidden;
+      //   transition: all 1s ease;
+      //   z-index: 99999;
+      //   &.active {
+      //     right: 0;
+      //     width: 25rem;
+      //     opacity: 1;
+      //   }
+      & > ul {
+        flex-direction: column;
+        padding: 1rem;
+        li {
+          padding: 1rem;
+          font-size: 2rem;
+          i.icon {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+
+  /** ACTIONS ***********************************************************************************************************/
+  #header-actions {
+    height: 100%;
+    margin: 0 0 0 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: $gray-200;
+
+    .header-action-btn {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      padding: 0 1.5rem;
+      @include media-breakpoint-down(md) {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+    }
+
+    #header-bigcartel-btn {
+      background-color: $gray-900;
+      color: $white;
+      //   color: $color-dark;
+      #bigcartel-logo {
+        width: 1.25rem;
+      }
+    }
+
+    #header-menu-btn {
+      display: none;
+      @include media-breakpoint-down(md) {
+        display: inherit;
+      }
+    }
+  }
+  /******** BANNER ***************************/
+
+  #header-banner {
+    height: 2.75rem;
+    background-color: darken($color-accent, 10%);
+    width: 100%;
+    color: $white;
+    padding: 0 2rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    p {
+      margin-top: 0.75rem;
+    }
+    #social {
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+
+      a,
+      a:hover {
+        color: $white;
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      justify-content: center;
+    }
+  }
+}

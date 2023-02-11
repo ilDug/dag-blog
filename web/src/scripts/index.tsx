@@ -1,3 +1,4 @@
+import "../styles/styles.scss"
 import { Dcc } from './plugins/cookie-consent'
 import { Tooltip } from 'bootstrap';
 

@@ -19,7 +19,7 @@
 
 <body>
 
-    <?php //include __DIR__ . '/views/header.php'; 
+    <?php include __DIR__ . '/views/header.php';
     ?>
 
 
@@ -30,7 +30,7 @@
 
 
 
-    <?php //include __DIR__ . '/views/footer.php'; 
+    <?php include __DIR__ . '/views/footer.php';
     ?>
 
     <script type="text/javascript" src="/dist/bundle.js"></script>
