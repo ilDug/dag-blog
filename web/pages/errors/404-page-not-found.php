@@ -4,12 +4,12 @@
 <head>
     <!-- META -->
     <?php
-    \ilDug\Web\Meta::publish(["Pagina non trovata",
-        "Not Found",
-        "https://simounichecreazioni.it/images/og-image1.jpg",
-        "https://simounichecreazioni.it/404",
-    ]);
-    \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
+    // \ilDug\Web\Meta::publish(["Pagina non trovata",
+    //     "Not Found",
+    //     "https://simounichecreazioni.it/images/og-image1.jpg",
+    //     "https://simounichecreazioni.it/404",
+    // ]);
+    // \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
     ?>
 
     <!-- STYLES  -->

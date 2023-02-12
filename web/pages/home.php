@@ -14,7 +14,7 @@
     ?>
 
     <!-- STYLES  -->
-    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="/dist/styles.css">
 </head>
 
 <body>
@@ -32,6 +32,10 @@
                     <article class="article">
                         <h1>DagBlog - Come spedire una email via terminale con <span class="underlined">SSMTP</span></h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum recusandae assumenda distinctio, dolore totam reiciendis commodi repellat soluta quia rerum ipsum, necessitatibus corrupti fugiat mollitia saepe at, quidem nam inventore.</p>
+
+                        <?php $blog = new \DAG\Blog(); ?>
+
+                        <?php echo $post->body; ?>
                     </article>
                 </div>
                 <div class="col-lg-3"></div>

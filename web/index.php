@@ -19,9 +19,19 @@ $router->get('/', function () {
 });
 
 
+$router->get('/{post_id}/{title}', function ($post_id) {
+    try {
+        /** definisce la variabile post da consumare nella pagina dedicata al post. */
+        $post = new \DAG\Post($post_id);
+        require __DIR__ . '/pages/home.php';
+    } catch (\Exception $err) {
+        echo "<script> location.href='/post-not-found'; </script>";
+    }
+});
+
 $router->set404(function () {
-    header('HTTP/1.1 404 Not Found');
-    require __DIR__ . '/pages/404-page-not-found.php';
+    header($_SERVER['SERVER_PROTOCOL'] .  ' 404 Not Found');
+    require __DIR__ . '/pages/errors/404-page-not-found.php';
 });
 
 
