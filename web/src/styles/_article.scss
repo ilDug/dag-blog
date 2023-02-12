@@ -7,9 +7,43 @@
 }
 
 .article {
-    max-width: 600px;
+    max-width: 630px;
     margin: auto;
     p {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+
+        & strong {
+            color: tint-color($secondary, 20%);
+        }
+        & em {
+            color: $info;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $gray-600;
+
+        & strong {
+            background-image: linear-gradient(to right, $color-secondary 0%, $color-secondary 100%);
+            background-size: 100% 35%;
+            background-repeat: repeat-x;
+            background-position: 0 85%;
+        }
+    }
+
+    blockquote {
+        border-left: 5px solid $gray-600;
+        margin-left: 1rem;
+        padding-left: 1rem;
+        color: tint-color($primary, 20%);
+        font-style: italic;
+        p {
+            font-size: 1.3rem !important;
+        }
     }
 }

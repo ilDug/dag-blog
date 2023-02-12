@@ -31,7 +31,7 @@ $black:    #000;
 $primary:       $color-primary;
 $secondary:     $color-secondary;
 $success:       $green;
-$info:          $cyan;
+$info:          $color-vibrant;
 $warning:       $yellow;
 $danger:        $red;
 $light:         $gray-100;
@@ -49,7 +49,7 @@ $theme-colors: (
   "dark":       $dark
 );
 
-$body-bg:                   lighten($color-dark, 10%);
+$body-bg:                   lighten($color-dark, 2.5%);
 $body-color:                $gray-500;
 $link-color:                $primary;
 $link-decoration:           none;
