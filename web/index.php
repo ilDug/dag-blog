@@ -23,7 +23,12 @@ $router->get('/{post_id}/{title}', function ($post_id) {
     try {
         /** definisce la variabile post da consumare nella pagina dedicata al post. */
         $post = new \DAG\Post($post_id);
+
+        /** se il post non è attivo,  lancia una Excwption */
+        if (!$post->metadata->publish) throw new \Exception("post non più attivo", 404);
+        
         require __DIR__ . '/pages/home.php';
+
     } catch (\Exception $err) {
         echo "<script> location.href='/post-not-found'; </script>";
     }
