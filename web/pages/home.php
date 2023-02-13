@@ -24,7 +24,7 @@
 
     <section id="home" class="page-content">
         <div class="container">
-            <div class="row mt-5">
+            <div class="row mt-3">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-7">
                     <article class="article">

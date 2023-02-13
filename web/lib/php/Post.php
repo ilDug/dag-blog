@@ -2,6 +2,8 @@
 
 namespace DAG;
 
+use DOMDocument;
+use DOMElement;
 use Parsedown;
 
 class Post
@@ -17,6 +19,7 @@ class Post
         $this->path = $this->get_md_file_path_from_id($post_id);
         $this->get_metadata($this->path);
         $this->parsedown($this->markdown);
+        $this->parse_images($this->body);
     }
 
 
@@ -65,5 +68,14 @@ class Post
     {
         $pd = new \Parsedown();
         $this->body = $pd->text($mardown);
+    }
+
+
+    /** 
+     * inserisce le immagini in un elemento per la visualizzazione corretta
+     */
+    private function parse_images($body)
+    {
+        $this->body = preg_replace('/<img([\w\W]+?)\/>/', '<figure class="figure"><img $1 class=""/></figure>', $body);
     }
 }
