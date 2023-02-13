@@ -1,5 +1,26 @@
 $post-img-height: 24rem;
 $post-border-radius: 12px;
+.metadata {
+    max-width: 630px;
+    margin: auto;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: $gray-600;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $gray-700;
+    border-bottom: 1px solid $gray-700;
+    padding: 1rem 0;
+    align-items: flex-end;
+    p {
+        & strong {
+            color: tint-color($secondary, 20%);
+        }
+        & em {
+            color: shade-color($info, 50%);
+        }
+    }
+}
 
 .article {
     max-width: 630px;
@@ -62,43 +83,42 @@ $post-border-radius: 12px;
         }
 
         // il titolo dela riquadro pre
-        .title{
+        .title {
             position: absolute;
             top: 0;
             margin-left: 50%;
             padding: 6px;
             font-style: italic;
             transform: translateX(-50%);
-            font-size: .8rem;
+            font-size: 0.8rem;
             color: $gray-600;
         }
 
-        .copy-btn{
+        .copy-btn {
             position: absolute;
             top: 0;
             right: 0;
             padding: 6px 11px;
             border-radius: $post-border-radius;
             font-style: italic;
-            font-size: .8rem;
+            font-size: 0.8rem;
             color: $gray-600;
             cursor: pointer;
             transition: all 0.5s ease;
 
-            &:hover{
+            &:hover {
                 background: $gray-800;
             }
         }
-        .copy-btn.copied{
+        .copy-btn.copied {
             color: $success;
-            &::before{
+            &::before {
                 content: "copied";
                 margin-right: 1rem;
             }
         }
     }
 
-    
     figure.figure {
         width: 100%;
         overflow: hidden;

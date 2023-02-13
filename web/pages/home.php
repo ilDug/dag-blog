@@ -27,6 +27,18 @@
             <div class="row mt-3">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-7">
+                    <div class="metadata">
+                        <p class="mb-0 ">
+                            <span>author: <strong><i class="fa-brands fa-github ms-2 me-1"></i><?php echo $post->metadata->author; ?></strong></span>
+                            <br>
+                            <span>updated: <em><i class="fa-light fa-calendar ms-2 me-1"></i> <?php echo date('d M Y', strtotime($post->metadata->date)); ?></em></span>
+                        </p>
+                        <p class="mb-0">
+                            <?php foreach ($post->metadata->tags as $tag) {
+                                echo '<span class="me-2"><a href="#"> #' . $tag . '</a></span>';
+                            }  ?>
+                        </p>
+                    </div>
                     <article class="article">
                         <?php echo $post->body; ?>
                     </article>

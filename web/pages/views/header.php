@@ -55,7 +55,7 @@
                 <i class="fal fa-bars"></i>
             </a>
             <a href="#" id="header-bigcartel-btn" class="header-action-btn" data-toggle="tooltip">
-                <i class="fas fa-shopping-bag text-white"></i>
+                <i class="fa-brands fa-rebel text-white"></i>
             </a>
         </div>
     </div>
