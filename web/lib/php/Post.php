@@ -2,24 +2,40 @@
 
 namespace DAG;
 
-use DOMDocument;
-use DOMElement;
-use Parsedown;
-
 class Post
 {
     /** il percorso assoluto del file */
     private string $path;
+
+    /** il contenuto in markdown del post */
     private string $markdown;
+
+    /** oggetto che contiene i metadata contenuti nel FRONT  MATTER del post */
     public object $metadata;
+
+    /** HTML del post */
     public string $body;
+
+    /**
+     * immagine principale con le seguenti proprietà:
+     * ->src = il percorso dell'immagine
+     * ->alt = il nome alternativo dell'immagine
+     * ->markdown = il markdown completo dell'immagine
+     * ->html = il tag img dell'immagine
+     */
+    public string $image;
+
+    /** il sommario ricavato dal primo blockquote del post */
+    public string $summary;
 
     function __construct($post_id)
     {
-        $this->path = $this->get_md_file_path_from_id($post_id);
-        $this->get_metadata($this->path);
-        $this->parsedown($this->markdown);
-        $this->parse_images($this->body);
+        $this->path = self::get_md_file_path_from_id($post_id);
+        $this->metadata = self::extract_metadata($this->path);
+        $this->markdown = $this->metadata->body();
+        $this->body = self::parse_images(self::parsedown($this->markdown));
+        $this->image = self::main_image($this->markdown);
+        $this->summary = self::generate_summary($this->markdown);
     }
 
 
@@ -29,7 +45,7 @@ class Post
      * 
      * Si ferma non appena trova il primo file MD
      */
-    private function get_md_file_path_from_id($post_id): string
+    static function get_md_file_path_from_id($post_id): string
     {
         /** se il file non esiste ritorna un exception
          * altrimenti ritorna il file MARKDOWN
@@ -53,48 +69,59 @@ class Post
     /** 
      * ottiene i metadata dell'articolo
      */
-    private function get_metadata($path)
+    static function extract_metadata($path): object
     {
         $content = file_get_contents($path);
-        $object = \Spatie\YamlFrontMatter\YamlFrontMatter::parse($content);
-        $this->markdown = $object->body();
-        $this->metadata = $object;
+        $matter = \Spatie\YamlFrontMatter\YamlFrontMatter::parse($content);
+        // $this->markdown = $matter->body();
+        // $this->metadata = $matter;
+        return $matter;
     }
 
     /**
      * trasforma il contenuto con parsedown
      */
-    private function parsedown($mardown)
+    static function parsedown($mardown): string
     {
         $pd = new \Parsedown();
-        $this->body = $pd->text($mardown);
+        return $pd->text($mardown);
     }
 
 
     /** 
      * inserisce le immagini in un elemento per la visualizzazione corretta
      */
-    private function parse_images($body)
+    static function parse_images($body)
     {
-        $this->body = preg_replace('/<img([\w\W]+?)\/>/', '<figure class="figure"><img $1 class=""/></figure>', $body);
+        return preg_replace('/<img([\w\W]+?)\/>/', '<figure class="figure"><img $1 class=""/></figure>', $body);
     }
 
 
     /**
-     * estrae la prima immagine (quelle pricipale) dal contenuto del post e restituisce il SRC
+     * ritorna una oggeto che contiene le informazioni dell'immagine principale:
+     * ->src = il percorso dell'immagine.
+     * ->alt = il nome alternativo dell'immagine
+     * ->markdown = il markdown completo dell'immagine
+     * ->html = il tag img dell'immagine
      */
-    public function main_image_src()
+    static function main_image($markdown): object
     {
-        preg_match('/\!\[(.*)\]\((.*)\)/', $this->markdown, $matches);
-        $markdown_image = $matches[0];
-        $alt_name = $matches[1];
-        $src = $matches[2];
-        return $src;
+        $pd = new \Parsedown();
+
+        preg_match('/\!\[(.*)\]\((.*)\)/', $markdown, $matches);
+        $image = array();
+
+        $image['markdown'] = $matches[0];
+        $image['alt'] = $matches[1];
+        $image['src'] = $matches[2];
+        $image['html'] = $pd->text($image['markdown']);
+        $image['html'] = self::parse_images($image['html']);
+        return (object) $image;
     }
 
-    public function summary()
+    static function generate_summary($markdown): string
     {
-        preg_match('/^>(.*)$/misU', $this->markdown, $matches);
+        preg_match('/^>(.*)$/misU', $markdown, $matches);
         $summary =  $matches[1];
         $summary =  str_replace('*', '', $summary);
         return $summary;

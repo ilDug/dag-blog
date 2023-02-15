@@ -7,7 +7,7 @@
     \ilDug\Web\Meta::publish([
         $post->metadata->title,
         $post->summary,
-        "https://blog.dagtech.it" . $post->main_image_src(),
+        "https://blog.dagtech.it" . $post->image->src,
         "https://blog.dagtech.it/" . $post->metadata->url,
     ]);
     \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
