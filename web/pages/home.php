@@ -51,6 +51,42 @@
                     <article class="article">
                         <?php echo $post->body; ?>
                     </article>
+
+                    <div class="next">
+                        <?php
+                        $next = \DAG\Blog::next((int) $post->metadata->code);
+                        if ($next) {
+                            $card = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
+                            $card->compile(array(
+                                "%IMGSRC%" => $next->image->src,
+                                "%IMGALT%" => $next->image->alt,
+                                "%LINK%" => $next->metadata->url,
+                                "%TITLE%" => $next->metadata->title,
+                                "%SUMMARY%" => $next->summary,
+                                "%DATE%" => $next->metadata->date
+                            ));
+                            echo $card->payload;
+                        }
+                        ?>
+                    </div>
+
+                    <div class="previous">
+                        <?php
+                        $prev = \DAG\Blog::prev((int) $post->metadata->code);
+                        if ($prev) {
+                            $card = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
+                            $card->compile(array(
+                                "%IMGSRC%" => $prev->image->src,
+                                "%IMGALT%" => $prev->image->alt,
+                                "%LINK%" => $prev->metadata->url,
+                                "%TITLE%" => $prev->metadata->title,
+                                "%SUMMARY%" => $prev->summary,
+                                "%DATE%" => $prev->metadata->date
+                            ));
+                            echo $card->payload;
+                        }
+                        ?>
+                    </div>
                 </div>
                 <div class="col-lg-3"></div>
             </div>
