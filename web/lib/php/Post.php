@@ -78,4 +78,25 @@ class Post
     {
         $this->body = preg_replace('/<img([\w\W]+?)\/>/', '<figure class="figure"><img $1 class=""/></figure>', $body);
     }
+
+
+    /**
+     * estrae la prima immagine (quelle pricipale) dal contenuto del post e restituisce il SRC
+     */
+    public function main_image_src()
+    {
+        preg_match('/\!\[(.*)\]\((.*)\)/', $this->markdown, $matches);
+        $markdown_image = $matches[0];
+        $alt_name = $matches[1];
+        $src = $matches[2];
+        return $src;
+    }
+
+    public function summary()
+    {
+        preg_match('/^>(.*)$/misU', $this->markdown, $matches);
+        $summary =  $matches[1];
+        $summary =  str_replace('*', '', $summary);
+        return $summary;
+    }
 }

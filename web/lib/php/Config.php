@@ -10,4 +10,5 @@ class Config
      * ogni sottocartella è nominata con il codice dell'articolo.
      */
     public static $postsPath = "/app/assets/blog/posts";
+    
 }
