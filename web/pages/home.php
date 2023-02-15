@@ -48,24 +48,33 @@
                         </p>
                     </div>
 
+
+
+
                     <article class="article">
                         <?php echo $post->body; ?>
                     </article>
+
+
+
+
 
                     <div class="next">
                         <?php
                         $next = \DAG\Blog::next((int) $post->metadata->code);
                         if ($next) {
-                            $card = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
-                            $card->compile(array(
+                            $card_next = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
+
+                            $card_next->compile(array(
                                 "%IMGSRC%" => $next->image->src,
                                 "%IMGALT%" => $next->image->alt,
                                 "%LINK%" => $next->metadata->url,
                                 "%TITLE%" => $next->metadata->title,
                                 "%SUMMARY%" => $next->summary,
-                                "%DATE%" => $next->metadata->date
+                                "%DATE%" => $next->metadata->date,
+                                "%TAGS%" => implode($next->tags)
                             ));
-                            echo $card->payload;
+                            echo $card_next->payload;
                         }
                         ?>
                     </div>
@@ -74,16 +83,18 @@
                         <?php
                         $prev = \DAG\Blog::prev((int) $post->metadata->code);
                         if ($prev) {
-                            $card = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
-                            $card->compile(array(
+                            $card_prev = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
+
+                            $card_prev->compile(array(
                                 "%IMGSRC%" => $prev->image->src,
                                 "%IMGALT%" => $prev->image->alt,
                                 "%LINK%" => $prev->metadata->url,
                                 "%TITLE%" => $prev->metadata->title,
                                 "%SUMMARY%" => $prev->summary,
-                                "%DATE%" => $prev->metadata->date
+                                "%DATE%" => $prev->metadata->date,
+                                "%TAGS%" => implode($prev->tags)
                             ));
-                            echo $card->payload;
+                            echo $card_prev->payload;
                         }
                         ?>
                     </div>
@@ -93,8 +104,7 @@
         </div>
     </section>
 
-    <?php include __DIR__ . '/views/footer.php';
-    ?>
+    <?php include __DIR__ . '/views/footer.php'; ?>
 
     <script type="text/javascript" src="/dist/bundle.js"></script>
 </body>

@@ -1,7 +1,8 @@
 $post-img-height: 24rem;
 $post-border-radius: 12px;
+$post-max-width: 660px;
 .metadata {
-    max-width: 630px;
+    max-width: $post-max-width;
     margin: auto;
     font-size: 0.8rem;
     font-style: italic;

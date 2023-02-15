@@ -23,7 +23,7 @@ class Post
      * ->markdown = il markdown completo dell'immagine
      * ->html = il tag img dell'immagine
      */
-    public string $image;
+    public object $image;
 
     /** il sommario ricavato dal primo blockquote del post */
     public string $summary;
@@ -111,18 +111,18 @@ class Post
         preg_match('/\!\[(.*)\]\((.*)\)/', $markdown, $matches);
         $image = array();
 
-        $image['markdown'] = $matches[0];
-        $image['alt'] = $matches[1];
-        $image['src'] = $matches[2];
-        $image['html'] = $pd->text($image['markdown']);
-        $image['html'] = self::parse_images($image['html']);
+        $image['markdown'] = $matches[0] ?? null;
+        $image['alt'] = $matches[1] ?? null;
+        $image['src'] = $matches[2] ?? null;
+        $image['html'] = $pd->text($image['markdown']) ?? null;
+        $image['html'] = self::parse_images($image['html']) ?? null;
         return (object) $image;
     }
 
     static function generate_summary($markdown): string
     {
         preg_match('/^>(.*)$/misU', $markdown, $matches);
-        $summary =  $matches[1];
+        $summary =  $matches[1] ?? null;
         $summary =  str_replace('*', '', $summary);
         return $summary;
     }

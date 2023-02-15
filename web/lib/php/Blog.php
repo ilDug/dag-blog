@@ -13,7 +13,9 @@ class Blog
         $dir = \DAG\Config::$postsPath;
         $ids = array();
         foreach (new \DirectoryIterator($dir) as $d) {
-            $ids[] = $d->getFilename();
+            if ($d->isDir() && !$d->isDot()) {
+                $ids[] = $d->getFilename();
+            }
         }
 
         sort($ids);
@@ -29,7 +31,6 @@ class Blog
     {
         $article = null;
         $archive = self::archive();
-
         /** se il numero di cartelle è minore o uguale a 1, allora si ferma */
         if (count($archive) <= 1) return null;
 
@@ -45,11 +46,9 @@ class Blog
                 if ($i == (count($archive) - 1)) break;
                 $i++;
             } else break;
-
             $article = new  Article($archive[$i]);
-
             //se l'articolo è attivo, ferma il loop
-            $loop = !$article->metadata->published;
+            $loop = !$article->metadata->publish;
         } while ($loop);
 
         return $article;
@@ -57,13 +56,13 @@ class Blog
 
 
     /** restituisce l'articolo attivo successivo a quello corrente passato come argomento */
-    static function next(int $current_code): Article
+    static function next(int $current_code): Article | null
     {
         return self::sibling($current_code, 'next');
     }
 
     /** restituisce il Article attivo successivo a quello corrente passato come argomento */
-    static function prev(int $current_code): Article
+    static function prev(int $current_code): Article | null
     {
         return self::sibling($current_code, 'prev');
     }

@@ -15,6 +15,7 @@ class Article
     public string $markdown;
     public object $image;
     public string $summary;
+    public $tags = array();
 
     function __construct($post_id)
     {
@@ -23,5 +24,8 @@ class Article
         $this->markdown = $this->metadata->body();
         $this->image = Post::main_image($this->markdown);
         $this->summary = Post::generate_summary($this->markdown);
+        foreach ($this->metadata->tags as $tag) {
+            $this->tags[]  =  '<span class="me-2"><a href="#"> #' . $tag . '</a></span>';
+        }
     }
 }
