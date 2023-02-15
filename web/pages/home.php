@@ -59,12 +59,13 @@
 
 
 
+                    <hr class="mt-5 mb-4">
                     <div class="next">
                         <?php
                         $next = \DAG\Blog::next((int) $post->metadata->code);
                         if ($next) {
                             $card_next = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
-
+                            echo $next->metadata->url;
                             $card_next->compile(array(
                                 "%IMGSRC%" => $next->image->src,
                                 "%IMGALT%" => $next->image->alt,
@@ -72,7 +73,8 @@
                                 "%TITLE%" => $next->metadata->title,
                                 "%SUMMARY%" => $next->summary,
                                 "%DATE%" => $next->metadata->date,
-                                "%TAGS%" => implode($next->tags)
+                                "%TAGS%" => implode('', $next->tags),
+                                "%AUTHOR%" => $next->metadata->author
                             ));
                             echo $card_next->payload;
                         }
@@ -92,7 +94,8 @@
                                 "%TITLE%" => $prev->metadata->title,
                                 "%SUMMARY%" => $prev->summary,
                                 "%DATE%" => $prev->metadata->date,
-                                "%TAGS%" => implode($prev->tags)
+                                "%TAGS%" => implode('', $prev->tags),
+                                "%AUTHOR%" => $prev->metadata->author
                             ));
                             echo $card_prev->payload;
                         }
