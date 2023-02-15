@@ -19,7 +19,7 @@
 
 <body>
 
-    <?php include __DIR__ . '/views/header.php'; ?>
+    <?php include __DIR__ . '/../views/header.php'; ?>
 
     <section id="not-found-404">
         <div class="container">
@@ -42,7 +42,7 @@
 
 
 
-    <?php include __DIR__ . '/views/footer.php'; ?>
+    <?php include __DIR__ . '/../views/footer.php'; ?>
 
     <script type="text/javascript" src="/dist/bundle.js"></script>
 </body>

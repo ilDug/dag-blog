@@ -12,22 +12,17 @@ window.onload = async () => {
     /**
      * COOKIE CONSENT
      */
-    // let dcc = new Dcc({
-    //     /** override default configs*/
-    //     policyVersion: new Date("2023-02-08"),
-    //     cookiePolicyLink: "/privacy/cookies",
-    //     diplayRejectAllBtn: false
-    // });
+    let dcc = new Dcc({
+        /** override default configs*/
+        policyVersion: new Date("2023-02-08"),
+        cookiePolicyLink: "/privacy/cookies",
+        diplayRejectAllBtn: false
+    });
 
-    // document
-    //     .querySelectorAll(".article img")
-    //     .forEach(img => {
-    //         img.classList.add('img-fluid')
-    //     })
 
     /**
- * attiva tutti i TOOLTIP
- */
+     * attiva tutti i TOOLTIP
+     */
     document
         .querySelectorAll("[data-toggle=tooltip]")
         .forEach((el) => new Tooltip(el));
@@ -55,10 +50,6 @@ window.onload = async () => {
             pre.appendChild(preTitle);
         })
 
-
-    const copyToClipboard = async (code: HTMLElement, btn: HTMLElement) => {
-
-    }
 
     /** 
      * crea il btn per copiare il contenuto di un PRE

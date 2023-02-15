@@ -18,6 +18,15 @@ $router->get('/', function () {
     require __DIR__ . '/pages/home.php';
 });
 
+$router->get('/privacy/policy', function () {
+    require __DIR__ . '/pages/privacy-policy.php';
+});
+
+$router->get('/privacy/cookies', function () {
+    require __DIR__ . '/pages/privacy-cookies.php';
+});
+
+
 
 $router->get('/{post_id}/{title}', function ($post_id) {
     try {
@@ -32,7 +41,8 @@ $router->get('/{post_id}/{title}', function ($post_id) {
     } catch (\Exception $err) {
         echo "<script> location.href='/post-not-found'; </script>";
     }
-});
+});    
+
 
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] .  ' 404 Not Found');
