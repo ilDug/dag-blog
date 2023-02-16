@@ -96,29 +96,3 @@ services:
   #     - mail_pw
   #     - contact_addresses
   #     - ig_user_id
-
-  # cron:
-  #   container_name: simocron
-  #   build:
-  #     context: ./
-  #     dockerfile: Dockerfile.dev-cron
-  #   restart: unless-stopped
-  #   environment:
-  #     PYTHONUNBUFFERED: 1
-  #     IG_CHECK_FREQ: 60 # secondi di frequenza del controllo del loop
-  #     IG_RENEW_FREQ: 3600 # secondi di frequenza di rinnovo dei media e del token
-  #     TZ: Europe/Rome
-  #     MODE: DEVELOPMENT
-  #   volumes:
-  #     - ./api:/app # cartella dell'applicazione
-  #     - ./assets:/app/assets # cartella per lo storage dei file statici
-  #     - instagram_media:/app/assets/images/ig/download
-  #     - ./secrets/ig_tokens:/app/lib/data/ig_tokens
-  #     # - /etc/timezone:/etc/timezone:ro
-  #     # - /etc/localtime:/etc/localtime:ro
-  #   networks:
-  #     - simonet1
-  #   secrets:
-  #     - mail_pw
-  #     - contact_addresses
-  #     - ig_user_id
