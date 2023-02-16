@@ -1,4 +1,4 @@
-Cookie Policy di simounichecreazioni.it
+Cookie Policy di blog.dagtech.it
 ------------------------------
 
 Questo documento contiene informazioni in merito alle tecnologie che consentono a questa Applicazione di raggiungere gli scopi descritti di seguito. Tali tecnologie permettono al Titolare di raccogliere e salvare informazioni (per esempio tramite l’utilizzo di Cookie) o di utilizzare risorse (per esempio eseguendo uno script) sul dispositivo dell’Utente quando quest’ultimo interagisce con questa Applicazione.
@@ -144,13 +144,11 @@ Gli Utenti sono liberi di decidere se prestare o meno il consenso. Tuttavia, si 
 
 ### Titolare del Trattamento dei Dati
 
-> Simona Barboni  
-Vicolo Solferino  
+> Marco Dognini
+via Corini, 20
 26010 Sergnano CR (Italia)  
-P.IVA: 01696640190
 
-
-> **Indirizzo email del Titolare:** simona@simounichecreazioni.it
+> **Indirizzo email del Titolare:** marco.dognini@dagtech.it
 
 Dal momento che l’uso di Strumenti di Tracciamento di terza parte su questa Applicazione non può essere completamente controllato dal Titolare, ogni riferimento specifico a Strumenti di Tracciamento di terza parte è da considerarsi indicativo. Per ottenere informazioni complete, gli Utenti sono gentilmente invitati a consultare la privacy policy dei rispettivi servizi terzi elencati in questo documento.
 
@@ -210,7 +208,7 @@ La presente informativa privacy è redatta sulla base di molteplici ordinamenti 
 
 Ove non diversamente specificato, questa informativa privacy riguarda esclusivamente questa Applicazione.
 
-Ultima modifica: 29 novembre 2022
+Ultima modifica: 15 febbraio 2023. 
 
 [Visualizza la Privacy Policy Completa](/privacy/policy)
 

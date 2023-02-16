@@ -1,2 +1,2 @@
 # dag-blog
-just another blog
+just another blog.

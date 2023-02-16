@@ -1,8 +1,9 @@
 import "../styles/styles.scss"
 import { Dcc } from './plugins/cookie-consent'
-import { Tooltip } from 'bootstrap';
+import { Tooltip, Offcanvas } from 'bootstrap';
 import hljs from "highlight.js";
 import 'highlight.js/scss/github-dark-dimmed.scss';
+import { DagTyperSetup } from "./typer";
 
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
 
@@ -12,29 +13,38 @@ window.onload = async () => {
     /**
      * COOKIE CONSENT
      */
-    // let dcc = new Dcc({
-    //     /** override default configs*/
-    //     policyVersion: new Date("2023-02-08"),
-    //     cookiePolicyLink: "/privacy/cookies",
-    //     diplayRejectAllBtn: false
-    // });
-
-    // document
-    //     .querySelectorAll(".article img")
-    //     .forEach(img => {
-    //         img.classList.add('img-fluid')
-    //     })
+    let dcc = new Dcc({
+        /** override default configs*/
+        policyVersion: new Date("2023-02-08"),
+        cookiePolicyLink: "/privacy/cookies",
+        diplayRejectAllBtn: false
+    });
 
     /**
- * attiva tutti i TOOLTIP
- */
+     * attiva tutti i TOOLTIP
+     */
     document
         .querySelectorAll("[data-toggle=tooltip]")
         .forEach((el) => new Tooltip(el));
 
+    /**
+     * applica hyghlight.js
+     */
     document
         .querySelectorAll(".article pre code")
         .forEach((el: HTMLElement) => hljs.highlightElement(el))
+
+    /**
+     * Attiva Bootstrap Offcanvas
+     */
+    document
+        .querySelectorAll('.offcanvas')
+        .forEach(el => new Offcanvas(el));
+
+    /**
+     * Attiva il typer nella navbar
+     */
+    DagTyperSetup()
 
     /**
      * traforma il contenuto dello span del file markdown nel titolo 
@@ -55,10 +65,6 @@ window.onload = async () => {
             pre.appendChild(preTitle);
         })
 
-
-    const copyToClipboard = async (code: HTMLElement, btn: HTMLElement) => {
-
-    }
 
     /** 
      * crea il btn per copiare il contenuto di un PRE
@@ -91,6 +97,5 @@ window.onload = async () => {
             spanCopyBtn.appendChild(copyBtn);
             block.parentElement.appendChild(spanCopyBtn);
         })
-
 
 }
