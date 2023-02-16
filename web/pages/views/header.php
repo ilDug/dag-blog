@@ -1,6 +1,9 @@
 <header>
     <div id="header-banner">
-        <p class="d-none d-md-block">Dag Blog - mettere typer.js</p>
+        <p class="d-none d-md-block">Dag Blog - we love
+            <span class="dag-typer" id="dag-typer-banner" data-words="code.,servers.,linux." data-delay="125" data-colors="#a7535b,#3364ae,#ffc107"></span>
+            <span style="font-size:1.2em;vertical-align:middle;" class="dag-cursor" data-cursorDisplay="|" data-owner="dag-typer-banner"></span>
+        </p>
         <div id="social">
             <a href="https://" target="_blank"><i class="fa-brands fa-2x mx-3 fa-youtube"></i></a>
             <a href="https://" target="_blank"><i class="fa-brands fa-2x mx-3 fa-instagram"></i></a>
