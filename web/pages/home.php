@@ -65,7 +65,6 @@
                         $next = \DAG\Blog::next((int) $post->metadata->code);
                         if ($next) {
                             $card_next = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
-                            echo $next->metadata->url;
                             $card_next->compile(array(
                                 "%IMGSRC%" => $next->image->src,
                                 "%IMGALT%" => $next->image->alt,
@@ -86,7 +85,6 @@
                         $prev = \DAG\Blog::prev((int) $post->metadata->code);
                         if ($prev) {
                             $card_prev = new \ilDug\Template(__DIR__ . "/templates/article_sibling_template.html");
-
                             $card_prev->compile(array(
                                 "%IMGSRC%" => $prev->image->src,
                                 "%IMGALT%" => $prev->image->alt,

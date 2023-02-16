@@ -14,7 +14,10 @@
     <div id="header-wrap">
 
         <div id="header-logo">
-            <a href="/"><img src="/assets/images/dag-tech-logo-sq.png" alt="" class="img-fluid"> Dag Blog</a>
+            <a href="/"><img src="/assets/images/dag-tech-logo-sq.png" alt="" class="img-fluid">
+
+                <span class="underlined">Dag Blog</span>
+            </a>
         </div>
         <nav class="" id="nav">
             <a href id="menu-o-close"><i class="fal fa-times fa-2x"></i></a>
