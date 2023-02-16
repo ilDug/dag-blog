@@ -1,18 +1,19 @@
 {
-    "name": "simo/web",
-    "description": "simo website",
+    "name": "dagtech/blog",
+    "description": "Dag Blog",
     "type": "project",
     "require": {
         "ildug/php-utils": "^1.2",
         "lcobucci/jwt": "^4.2.1",
         "bramus/router": "^1.6.1",
         "phpmailer/phpmailer": "^6.6.5",
-        "erusev/parsedown": "^1.7"
+        "erusev/parsedown": "^1.7",
+        "spatie/yaml-front-matter": "^2.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Simo\\Web\\": "lib/php/"
+            "DAG\\": "lib/php/"
         }
     },
     "authors": [

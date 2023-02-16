@@ -61,6 +61,7 @@ services:
     image: php:8-fpm-bullseye
     volumes:
       - ./web:/app
+      - ./assets:/app/assets # collegamento ai file statici
       - ./config/php/php.ini:/usr/local/etc/php/php.ini
       # - /etc/timezone:/etc/timezone:ro
       # - /etc/localtime:/etc/localtime:ro

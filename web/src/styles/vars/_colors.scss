@@ -1,0 +1,55 @@
+$color-primary: rgb(118, 92, 142);
+$color-secondary: rgb(163, 0, 125);
+$color-vibrant: rgb(191, 215 ,36);
+$color-dark: #3c4346;
+
+
+$blue:    rgb(51, 100, 174);
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     rgb(167, 83, 91);
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #198754;
+$teal:    #20c997;
+$cyan:    #0dcaf0;
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+// scss-docs-start theme-color-variables
+$primary:       $color-primary;
+$secondary:     $color-secondary;
+$success:       $green;
+$info:          $color-vibrant;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $color-dark;
+
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+$body-bg:                   lighten($color-dark, 2.5%);
+$body-color:                $gray-500;
+$link-color:                $primary;
+$link-decoration:           none;

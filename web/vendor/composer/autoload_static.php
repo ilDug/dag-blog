@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInitfb50f731367b8fe4a8fe4e3944039e0d
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
     );
 
@@ -17,8 +18,10 @@ class ComposerStaticInitfb50f731367b8fe4a8fe4e3944039e0d
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\Yaml\\' => 23,
             'StellaMaris\\Clock\\' => 18,
-            'Simo\\Web\\' => 9,
+            'Spatie\\YamlFrontMatter\\' => 23,
         ),
         'R' => 
         array (
@@ -35,6 +38,10 @@ class ComposerStaticInitfb50f731367b8fe4a8fe4e3944039e0d
             'Lcobucci\\JWT\\' => 13,
             'Lcobucci\\Clock\\' => 15,
         ),
+        'D' => 
+        array (
+            'DAG\\' => 4,
+        ),
         'B' => 
         array (
             'Brick\\Math\\' => 11,
@@ -46,13 +53,21 @@ class ComposerStaticInitfb50f731367b8fe4a8fe4e3944039e0d
         array (
             0 => __DIR__ . '/..' . '/ildug/php-utils/src',
         ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Symfony\\Component\\Yaml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
         'StellaMaris\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/stella-maris/clock/src',
         ),
-        'Simo\\Web\\' => 
+        'Spatie\\YamlFrontMatter\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/lib/php',
+            0 => __DIR__ . '/..' . '/spatie/yaml-front-matter/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -77,6 +92,10 @@ class ComposerStaticInitfb50f731367b8fe4a8fe4e3944039e0d
         'Lcobucci\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/lcobucci/clock/src',
+        ),
+        'DAG\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/lib/php',
         ),
         'Brick\\Math\\' => 
         array (

@@ -7,13 +7,16 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ilDug\\' => array($vendorDir . '/ildug/php-utils/src'),
+    'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
+    'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'StellaMaris\\Clock\\' => array($vendorDir . '/stella-maris/clock/src'),
-    'Simo\\Web\\' => array($baseDir . '/lib/php'),
+    'Spatie\\YamlFrontMatter\\' => array($vendorDir . '/spatie/yaml-front-matter/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psr\\Clock\\' => array($vendorDir . '/psr/clock/src'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'Lcobucci\\JWT\\' => array($vendorDir . '/lcobucci/jwt/src'),
     'Lcobucci\\Clock\\' => array($vendorDir . '/lcobucci/clock/src'),
+    'DAG\\' => array($baseDir . '/lib/php'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
 );

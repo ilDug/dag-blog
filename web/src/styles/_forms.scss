@@ -1,0 +1,40 @@
+/*Checkboxes styles*/
+
+.dag-cb{
+
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="checkbox"] + label {
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+    }
+    input[type="checkbox"]:hover + label:before {
+        background: $color-secondary;
+        box-shadow: inset 0px 0px 0px 2px #f7f2f2;
+    }
+    input[type="checkbox"] + label:before {
+        content: "";
+        display: block;
+        width: 1.4em;
+        height: 1.4em;
+        border: 1px solid #343a3f;
+        border-radius: 0.2em;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 0.2s ease-in-out;
+        background: #f3f3f3;
+    }
+    input[type="checkbox"]:checked + label:before {
+        width: 1.3em;
+        height: 1.3em;
+        border-radius: 0.2em;
+        border: 2px solid #fff;
+        transform: rotate(90deg);
+        background: $color-secondary;
+        box-shadow: 0 0 0 1px #000;
+    }
+}
+/* checkbox-rect end */
