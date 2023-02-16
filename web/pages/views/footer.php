@@ -16,8 +16,7 @@
                     <a href="https://" target="_blank"><i class="fa-brands fa-2x mx-3 fa-youtube"></i></a>
                     <a href="https://" target="_blank"><i class="fa-brands fa-2x mx-3 fa-instagram"></i></a>
                     <a href="https://" target="_blank"><i class="fa-brands fa-2x mx-3 fa-github"></i></a>
-
-                    <a href="https://www.buymeacoffee.com/ilDug" target="_blank"><i class="fa-brands fa-2x mx-3 fa-github"></i></a>
+                    <a href="https://www.buymeacoffee.com/ilDug" target="_blank"><i class="fa-regular fa-2x mx-3 fa-cup-togo"></i></a>
                 </p>
                 <p>
                     <img src="/assets/images/dag-tech-logo-sq.png" alt="Dag Tech" style="width:5rem;">
