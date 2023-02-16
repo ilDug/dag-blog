@@ -1,4 +1,4 @@
-Privacy Policy di **simounichecreazioni.it**
+Privacy Policy di **blog.dagtech.it**
 ===================================
 
 Questa Applicazione raccoglie alcuni Dati Personali dei propri Utenti.
@@ -10,13 +10,11 @@ Questo documento può essere stampato utilizzando il comando di stampa presente 
 Titolare del Trattamento dei Dati
 ---------------------------------
 
-> Simona Barboni  
-Vicolo Solferino  
+> Marco Dognini  
+Via Corini, 20  
 26010 Sergnano CR (Italia)  
-P.IVA: 01696640190
 
-
-> **Indirizzo email del Titolare:** simona@simounichecreazioni.it
+> **Indirizzo email del Titolare:** marco.dognini@dagtech.it
 
 Tipologie di Dati raccolti
 --------------------------
@@ -329,4 +327,4 @@ La presente informativa privacy è redatta sulla base di molteplici ordinamenti 
 
 Ove non diversamente specificato, questa informativa privacy riguarda esclusivamente questa Applicazione.
 
-Ultima modifica: 29 novembre 2022
+Ultima modifica: 15 febbraio 2023.
