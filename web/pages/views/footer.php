@@ -27,7 +27,7 @@
             <div class="col-sm-3 ">
                 <p data-toggle="tooltip" title="Buy me a coffee">
                     <a href="https://www.buymeacoffee.com/ilDug" target="_blank">
-                        <span>
+                        <span style="width:5rem;">
                             <img src="/assets/images/bmc-logo.svg" alt="buy me a coffee" class="img-fluid">
                         </span>
                     </a>
