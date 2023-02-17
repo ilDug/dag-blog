@@ -1,70 +1,59 @@
-# version: "3.9"
+version: "3.9"
 
-# networks:
-#   default:
-#     name: traefik_net
-#     external: true
+networks:
+  blognet:
+  default:
+    name: traefik_net
+    external: true
 
-
-# ##########################################
-# secrets:
-#   contact_addresses:
-#     file: secrets/contact_addresses
-#   mail_pw:
-#     file: secrets/mail_pw
-#   ig_user_id:
-#     file: secrets/ig_user_id
+##########################################
+volumes:
+  blog:
+    name: blog
 
 # ##########################################
-# volumes:
-#   instagram_media:
+services:
 
-# ##########################################
-# services:
+  blog:
+    container_name: dagblog
+    image: ghcr.io/ildug/dagblog-web
+    restart: unless-stopped
+    environment:
+      MODE: PRODUCTION
+      TZ: Europe/Rome
+    links:
+      - php
+    depends_on:
+      - php
+    volumes:
+      - ./assets:/app/assets # collegamento ai file statici
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dagbog.rule=Host(`blog.dagtech.it`)"
+      - "traefik.http.routers.dagbog.entrypoints=websecure"
+      - "traefik.http.routers.dagbog.tls=true"
+      - "traefik.http.routers.dagbog.tls.certresolver=le"
 
-#   web:
-#     container_name: simoweb
-#     image: ghcr.io/ildug/simounichecreazioni-web
-#     restart: unless-stopped
-#     environment:
-#       MODE: PRODUCTION
-#       TZ: Europe/Rome
-#     links:
-#       - php
-#     depends_on:
-#       - php
-#       - api
-#     volumes:
-#       - ./assets:/app/assets # collegamento ai file statici
-#       - instagram_media:/app/assets/images/ig/download
-#       - /etc/timezone:/etc/timezone:ro
-#       - /etc/localtime:/etc/localtime:ro
-#     networks:
-#       - default
-#     labels:
-#       - "traefik.enable=true"
-#       - "traefik.http.routers.simoweb.rule=Host(`simounichecreazioni.it`)"
-#       - "traefik.http.routers.simoweb.entrypoints=websecure"
-#       - "traefik.http.routers.simoweb.tls=true"
-#       - "traefik.http.routers.simoweb.tls.certresolver=le"
-
-#   php:
-#     container_name: simophp
-#     image: ghcr.io/ildug/simounichecreazioni-php
-#     restart: unless-stopped
-#     volumes:
-#       - ./assets:/app/assets # collegamento ai file statici
-#       - instagram_media:/app/assets/images/ig/download
-#       - /etc/timezone:/etc/timezone:ro
-#       - /etc/localtime:/etc/localtime:ro
-#     environment:
-#       MODE: PRODUCTION
-#       TZ: Europe/Rome
-#     networks:
-#       - default
+  php:
+    container_name: simophp
+    image: ghcr.io/ildug/dagblog-php
+    restart: unless-stopped
+    volumes:
+      - ./assets:/app/assets # collegamento ai file statici
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      MODE: PRODUCTION
+      TZ: Europe/Rome
+    networks:
+      - blognet
 
 #   api:
-#     container_name: simoapi
+#     container_name: dagblogapi
 #     image: ghcr.io/ildug/simounichecreazioni-api
 #     restart: unless-stopped
 #     environment:
@@ -85,11 +74,11 @@
 #       - ig_user_id
 #     labels:
 #       - "traefik.enable=true"
-#       - "traefik.http.routers.simoapi.rule=Host(`simounichecreazioni.it`) && PathPrefix(`/api`) "
-#       - "traefik.http.routers.simoapi.entrypoints=websecure"
-#       - "traefik.http.routers.simoapi.tls=true"
-#       - "traefik.http.routers.simoapi.tls.certresolver=le"
-#       - "traefik.http.routers.simoapi.middlewares=api_stripprefix@docker"
+#       - "traefik.http.routers.dagblogapi.rule=Host(`simounichecreazioni.it`) && PathPrefix(`/api`) "
+#       - "traefik.http.routers.dagblogapi.entrypoints=websecure"
+#       - "traefik.http.routers.dagblogapi.tls=true"
+#       - "traefik.http.routers.dagblogapi.tls.certresolver=le"
+#       - "traefik.http.routers.dagblogapi.middlewares=api_stripprefix@docker"
 #       - "traefik.http.middlewares.api_stripprefix.stripprefix.prefixes=/api"
 
 #   cron:
@@ -104,7 +93,6 @@
 #       TZ: Europe/Rome
 #     volumes:
 #       - ./assets:/app/assets # cartella per lo storage dei file statici
-#       - instagram_media:/app/assets/images/ig/download
 #       - ./secrets/ig_tokens:/app/lib/data/ig_tokens
 #       - /etc/timezone:/etc/timezone:ro
 #       - /etc/localtime:/etc/localtime:ro

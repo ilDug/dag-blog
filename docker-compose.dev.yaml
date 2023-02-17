@@ -19,20 +19,6 @@ volumes:
 
 ##########################################
 services:
-  # admin:
-  #   container_name: blog_admin
-  #   image: nginx
-  #   restar: unless_stopped
-  #   ports:
-  #     - 8710:80
-  #   # depends_on:
-  #   #   - db
-  #   # volumes:
-  #   #   - /etc/timezone:/etc/timezone:ro
-  #   #   - /etc/localtime:/etc/localtime:ro
-  #   networks:
-  #     - blognet
-
 
   blog:
     container_name: dagblog
@@ -96,3 +82,18 @@ services:
   #     - mail_pw
   #     - contact_addresses
   #     - ig_user_id
+
+
+  # admin:
+  #   container_name: blog_admin
+  #   image: nginx
+  #   restar: unless_stopped
+  #   ports:
+  #     - 8710:80
+  #   # depends_on:
+  #   #   - db
+  #   # volumes:
+  #   #   - /etc/timezone:/etc/timezone:ro
+  #   #   - /etc/localtime:/etc/localtime:ro
+  #   networks:
+  #     - blognet
