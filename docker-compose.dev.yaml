@@ -21,7 +21,7 @@ volumes:
 services:
 
   blog:
-    container_name: dagblog
+    container_name: dagblogweb
     image: nginx
     restart: unless-stopped
     ports:

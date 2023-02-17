@@ -1,21 +1,15 @@
 version: "3.9"
 
 networks:
-  blognet:
   default:
     name: traefik_net
     external: true
-
-##########################################
-volumes:
-  blog:
-    name: blog
 
 # ##########################################
 services:
 
   blog:
-    container_name: dagblog
+    container_name: dagblogweb
     image: ghcr.io/ildug/dagblog-web
     restart: unless-stopped
     environment:
@@ -39,7 +33,7 @@ services:
       - "traefik.http.routers.dagbog.tls.certresolver=le"
 
   php:
-    container_name: simophp
+    container_name: dagblogphp
     image: ghcr.io/ildug/dagblog-php
     restart: unless-stopped
     volumes:
@@ -50,7 +44,7 @@ services:
       MODE: PRODUCTION
       TZ: Europe/Rome
     networks:
-      - blognet
+      - default
 
 #   api:
 #     container_name: dagblogapi

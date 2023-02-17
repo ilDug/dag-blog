@@ -1,21 +1,15 @@
 version: "3.9"
 
 networks:
-  blognet:
   default:
     name: traefik_net
     external: true
-
-##########################################
-volumes:
-  blog:
-    name: blog
 
 # ##########################################
 services:
 
   blog:
-    container_name: dagblog
+    container_name: dagblogweb
     image: nginx
     restart: unless-stopped
     # ports:
@@ -34,7 +28,6 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     networks:
-      - blognet
       - default
     labels:
       - "traefik.enable=true"
@@ -47,6 +40,7 @@ services:
   php:
     container_name: dagblogphp
     image: php:8-fpm-bullseye
+    restart: unless-stopped
     volumes:
       - ./web:/app
       - ./assets:/app/assets # collegamento ai file statici
@@ -57,7 +51,7 @@ services:
       MODE: PRODUCTION
       TZ: Europe/Rome
     networks:
-      - blognet
+      - default
 
 #   api:
 #     container_name: dagblogapi
