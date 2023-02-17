@@ -139,10 +139,10 @@ class SitemapGenerator
 	// Function to generate a Sitemap with the given pages array where the script has run through
 	private function generateFile($pages)
 	{
-		$xml = '<?xml version="1.0" encoding="UTF-8"?>
+		$xml =
+        '<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-		<!-- ' . count($pages) . ' total pages-->
-		<!-- PHP-sitemap-generator by https://github.com/tristangoossens -->';
+		<!-- ' . count($pages) . ' total pages-->';
 
 
 		// Print the amount of pages
