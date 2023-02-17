@@ -6,12 +6,10 @@
     <?php
 
     \ilDug\Web\Meta::publish([
-        "Privacy Policy | Simo Uniche Creazioni",
-        "Privacy Policy",
-        "https://simounichecreazioni.it/images/og-image1.jpg",
-        "https://simounichecreazioni.it/privacy/policy",
+        "DAG BLOG - il blog di DagTech - Privacy policy",
+        "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
     ]);
-    \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
+    // \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
     ?>
 
     <!-- STYLES  -->

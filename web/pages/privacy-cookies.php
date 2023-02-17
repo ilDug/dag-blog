@@ -6,12 +6,10 @@
     <?php
 
     \ilDug\Web\Meta::publish([
-        "Cookies Policy | Simo Uniche Creazioni",
-        "Cookies  policy di Simona Uniche Creazioni",
-        "https://simounichecreazioni.it/images/og-image1.jpg",
-        "https://simounichecreazioni.it/privacy/cookies",
+        "DAG BLOG - il blog di DagTech - cookies policy",
+        "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
     ]);
-    \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
+    // \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
     ?>
 
     <!-- STYLES  -->

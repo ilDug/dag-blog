@@ -3,7 +3,7 @@ require __DIR__ . "/vendor/autoload.php";
 
 /** carica il template dei meta tags */
 \ilDug\Web\Meta::$TEMPLATE = __DIR__ . "/lib/meta/meta-tags.html";
-// \ilDug\Web\Meta::$PLACEHOLDERS = array('%TITLE%', '%DESCRIPTION%', '%MAIN_IMAGE%', '%URL%');
+\ilDug\Web\Meta::$PLACEHOLDERS = array('%TITLE%', '%MAIN_IMAGE%');
 
 
 /** adotta gli script da pubblicare */
@@ -39,8 +39,8 @@ $router->get('/{post_id}/{title}', function ($post_id) {
 
         /** se il post non è attivo,  lancia una Excwption */
         if (!$post->metadata->publish) throw new \Exception("post non più attivo", 404);
-        
-        require __DIR__ . '/pages/home.php';
+
+        require __DIR__ . '/pages/post.php';
 
     } catch (\Exception $err) {
         echo "<script> location.href='/post-not-found'; </script>";

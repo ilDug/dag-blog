@@ -4,11 +4,11 @@
 <head>
     <!-- META -->
     <?php
-    // \ilDug\Web\Meta::publish(["Pagina non trovata",
-    //     "Not Found",
-    //     "https://simounichecreazioni.it/images/og-image1.jpg",
-    //     "https://simounichecreazioni.it/404",
-    // ]);
+
+    \ilDug\Web\Meta::publish([
+        "DAG BLOG - il blog di DagTech - Page Not Found",
+        "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
+    ]);
     // \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
     ?>
 
