@@ -9,7 +9,7 @@
         "DAG BLOG - il blog di DagTech - Page Not Found",
         "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
     ]);
-    // \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
+    \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS'])
     ?>
 
     <!-- STYLES  -->

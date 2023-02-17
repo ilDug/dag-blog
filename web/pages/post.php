@@ -12,7 +12,7 @@
         $post->metatadta->date,
         $post->metatadta->update
     ]);
-    // \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
+    \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS'])
     ?>
 
     <!-- STYLES  -->

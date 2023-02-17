@@ -7,7 +7,7 @@ require __DIR__ . "/vendor/autoload.php";
 
 
 /** adotta gli script da pubblicare */
-// \ilDug\Web\Scripts::adopt("STRUCTURED_DATA", __DIR__ . "/lib/scripts/structured-data.template.html");
+\ilDug\Web\Scripts::adopt("GOOGLE_ANALYTICS", __DIR__ . "/lib/scripts/google-analytics.template.html");
 
 
 
