@@ -179,7 +179,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - containerize_web
-      - containerize_api
+      # - containerize_api
       # - containerize_cron
 
     steps:
