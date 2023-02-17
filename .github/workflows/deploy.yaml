@@ -1,0 +1,215 @@
+name: Build images e Deploy 
+
+on:
+  release:
+    types: [published]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_WEB: ildug/dagblog-web
+  IMAGE_PHP: ildug/dagblog-php
+  # IMAGE_API: ildug/dagblog-api
+  # IMAGE_CRON: ildug/dagblog-cron
+
+jobs:
+  build_web:
+    name: Node ${{ matrix.node-version }} build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # node-version: [14.x, 16.x, 18.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Packages
+        run: |
+          cd ./web
+          pwd
+          FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }} npm ci
+
+      - name: Build
+        run: |
+          cd ./web
+          pwd
+          npm run build
+
+  containerize_web:
+    name: WEB and PHP - Build, tag and push to Github Container Registry
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    needs: build_web
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get Tags
+        id: tag
+        uses: ildug/get-tag-action@v1
+
+      - name: Build
+        run: |
+          cd ./web
+          FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }} npm ci
+          npm run build
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: WEB - Build and push image
+        run: |
+          docker buildx create --driver docker-container --use
+          docker buildx build . \
+                --file Dockerfile.prod-web \
+                --tag ${{ env.REGISTRY }}/${{ env.IMAGE_WEB }}:latest \
+                --tag ${{ env.REGISTRY }}/${{ env.IMAGE_WEB }}:${{ steps.tag.outputs.version }} \
+                --platform linux/amd64 \
+                --push
+
+      - name: PHP - Build and push image
+        run: |
+          docker buildx create --driver docker-container --use
+          docker buildx build . \
+                --file Dockerfile.prod-php \
+                --tag ${{ env.REGISTRY }}/${{ env.IMAGE_PHP }}:latest \
+                --tag ${{ env.REGISTRY }}/${{ env.IMAGE_PHP }}:${{ steps.tag.outputs.version }} \
+                --platform linux/amd64 \
+                --push
+
+  # containerize_api:
+  #   name: API - Build, tag and push to Github Container Registry
+  #   if: github.ref_type == 'tag'
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+
+  #     - name: Get Tags
+  #       id: tag
+  #       uses: ildug/get-tag-action@v1
+
+  #     - name: Set up QEMU
+  #       uses: docker/setup-qemu-action@v2
+
+  #     # - name: Set up Docker Buildx
+  #     #   uses: docker/setup-buildx-action@v2
+
+  #     - name: Login to GitHub Container Registry
+  #       uses: docker/login-action@v2
+  #       with:
+  #         registry: ${{ env.REGISTRY }}
+  #         username: ${{ github.repository_owner }}
+  #         password: ${{ secrets.GITHUB_TOKEN }}
+
+  #     - name: API - Build and push image
+  #       run: |
+  #         docker buildx create --driver docker-container --use
+  #         docker buildx build . \
+  #               --file Dockerfile.prod-api \
+  #               --tag ${{ env.REGISTRY }}/${{ env.IMAGE_API }}:latest \
+  #               --tag ${{ env.REGISTRY }}/${{ env.IMAGE_API }}:${{ steps.tag.outputs.version }} \
+  #               --platform linux/amd64 \
+  #               --push
+
+  # containerize_cron:
+  #   name: CRON - Build, tag and push to Github Container Registry
+  #   if: github.ref_type == 'tag'
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+
+  #     - name: Get Tags
+  #       id: tag
+  #       uses: ildug/get-tag-action@v1
+
+  #     - name: Set up QEMU
+  #       uses: docker/setup-qemu-action@v2
+
+  #     # - name: Set up Docker Buildx
+  #     #   uses: docker/setup-buildx-action@v2
+
+  #     - name: Login to GitHub Container Registry
+  #       uses: docker/login-action@v2
+  #       with:
+  #         registry: ${{ env.REGISTRY }}
+  #         username: ${{ github.repository_owner }}
+  #         password: ${{ secrets.GITHUB_TOKEN }}
+
+  #     - name: CRON - Build and push image
+  #       run: |
+  #         docker buildx create --driver docker-container --use
+  #         docker buildx build . \
+  #               --file Dockerfile.prod-cron \
+  #               --tag ${{ env.REGISTRY }}/${{ env.IMAGE_CRON }}:latest \
+  #               --tag ${{ env.REGISTRY }}/${{ env.IMAGE_CRON }}:${{ steps.tag.outputs.version }} \
+  #               --platform linux/amd64 \
+  #               --push
+
+  deploy:
+    name: Deploy on DAGHOST1
+    runs-on: ubuntu-latest
+    needs:
+      - containerize_web
+      - containerize_api
+      # - containerize_cron
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure SSH
+        env:
+          SSH_USER: root
+          SSH_KEY: ${{ secrets.DAGHOST_SSH_PRIVKEY }}
+          SSH_HOST: ${{ secrets.DAGHOST_IP }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/dag.key
+          chmod 600 ~/.ssh/dag.key
+          cat >>~/.ssh/config <<END
+          Host daghost
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/dag.key
+            StrictHostKeyChecking no
+          END
+      - name: Copy assets
+        run: |
+          rsync -auvh --progress -e ssh ./docker-compose.prod.yaml daghost:/apps/dagblog/docker-compose.yaml
+          rsync -auvh --progress -e ssh ./assets daghost:/apps/dagblog/
+
+      - name: Login to GHCR
+        run: |
+          ssh daghost "echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ilDug --password-stdin"
+
+      - name: Deploy on Server
+        run: |
+          ssh daghost "docker pull $REGISTRY/$IMAGE_WEB:latest"
+          ssh daghost "docker pull $REGISTRY/$IMAGE_PHP:latest"
+          # ssh daghost "docker pull $REGISTRY/$IMAGE_API:latest"
+          # ssh daghost "docker pull $REGISTRY/$IMAGE_CRON:latest"
+          ssh daghost "cd /apps/dagblog && docker-compose up -d --force-recreate"
+          ssh daghost "docker image prune -f"
