@@ -7,7 +7,7 @@ require __DIR__ . "/vendor/autoload.php";
 
 
 /** adotta gli script da pubblicare */
-\ilDug\Web\Scripts::adopt("STRUCTURED_DATA", __DIR__ . "/lib/scripts/structured-data.template.html");
+// \ilDug\Web\Scripts::adopt("STRUCTURED_DATA", __DIR__ . "/lib/scripts/structured-data.template.html");
 
 
 
@@ -29,6 +29,10 @@ $router->get('/privacy/cookies', function () {
 
 
 $router->get('/{post_id}/{title}', function ($post_id) {
+
+    \ilDug\Web\Meta::$TEMPLATE = __DIR__ . "/lib/meta/meta-tags.html";
+    \ilDug\Web\Meta::$PLACEHOLDERS = array('%TITLE%', '%DESCRIPTION%', '%MAIN_IMAGE%', '%URL%', '%DATE%', '%UPDATE%',);
+
     try {
         /** definisce la variabile post da consumare nella pagina dedicata al post. */
         $post = new \DAG\Post($post_id);

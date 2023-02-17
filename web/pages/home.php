@@ -9,6 +9,8 @@
         $post->summary,
         "https://blog.dagtech.it" . $post->image->src,
         "https://blog.dagtech.it/" . $post->metadata->url,
+        $post->metatadta->date,
+        $post->metatadta->update
     ]);
     \ilDug\Web\Scripts::run(['STRUCTURED_DATA'])
     ?>
