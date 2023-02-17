@@ -25,7 +25,12 @@
         <div class="container">
             <div class="row mt-3">
                 <div class="col-12">
-                    <h1>Dag Blog</h1>
+                    <div id="landing">
+                        <h1>Dag Blog</h1>
+                        <p>
+                            <img src="/assets/images/dag-tech-logo-sq.png" alt="" class="home-logo img-fluid">
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

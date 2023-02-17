@@ -21,7 +21,7 @@
 
     <?php include __DIR__ . '/../views/header.php'; ?>
 
-    <section id="not-found-404">
+    <section id="not-found-404" class="page-content">
         <div class="container">
             <div class="row">
                 <div class="col-12 content-404">
@@ -31,9 +31,7 @@
                     <p>ricomincia da qui...</p>
                     <p>link utili
                         <a href="/" class="mx-3">home</a>
-                        <a href="/about" class="mx-3">about</a>
-                        <a href="/creations" class="mx-3">creazioni</a>
-                        <a href="/contacts" class="mx-3">contatti</a>
+                        <a href="/" class="mx-3">search</a>
                     </p>
                 </div>
             </div>

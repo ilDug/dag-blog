@@ -1,0 +1,42 @@
+#not-found-404{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // min-height: 100vh;
+    .container {
+        flex: 1 1 auto;
+        .content-404{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            h1{
+                font-size: 3rem;
+            }
+
+            .code-404{
+                font-size: 7rem;
+                color: $gray-200;
+            }
+        }
+    }
+
+
+}
+
+@include media-breakpoint-down(sm) {
+    #not-found-404{
+        section {
+            .content-404{
+                h1{
+                    font-size: 4rem;
+                }
+                .code-404{
+                    font-size: 10rem;
+                }
+            }
+        }
+    }
+}

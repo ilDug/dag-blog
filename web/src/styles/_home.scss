@@ -1,0 +1,9 @@
+#home{
+    #landing{
+        text-align: center;
+
+        img.home-logo{
+                width: clamp(200px, 50vw, 400px);
+        }
+    }
+}
