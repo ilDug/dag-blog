@@ -86,8 +86,8 @@ class Blog
 
         function sort_by_date(Article $a, Article $b)
         {
-            $dateA =  strtotime($a->metadata->date);
-            $dateB =  strtotime($b->metadata->date);
+            $dateA =  strtotime($a->metadata->update);
+            $dateB =  strtotime($b->metadata->update);
 
             if ($dateA == $dateB) return 0;
             return ($dateA < $dateB) ? -1 : 1;

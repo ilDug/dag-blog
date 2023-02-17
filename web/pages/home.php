@@ -37,7 +37,7 @@
                             <br>
                             <span>updated:
                                 <em>
-                                    <i class="fa-light fa-calendar ms-2 me-1"></i> <?php echo date('d M Y', strtotime($post->metadata->date)); ?>
+                                    <i class="fa-light fa-calendar ms-2 me-1"></i> <?php echo date('d M Y', strtotime($post->metadata->update)); ?>
                                 </em>
                             </span>
                         </p>
@@ -71,7 +71,7 @@
                                 "%LINK%" => $next->metadata->url,
                                 "%TITLE%" => $next->metadata->title,
                                 "%SUMMARY%" => $next->summary,
-                                "%DATE%" => $next->metadata->date,
+                                "%DATE%" => $next->metadata->update,
                                 "%TAGS%" => implode('', $next->tags),
                                 "%AUTHOR%" => $next->metadata->author
                             ));
@@ -91,7 +91,7 @@
                                 "%LINK%" => $prev->metadata->url,
                                 "%TITLE%" => $prev->metadata->title,
                                 "%SUMMARY%" => $prev->summary,
-                                "%DATE%" => $prev->metadata->date,
+                                "%DATE%" => $prev->metadata->update,
                                 "%TAGS%" => implode('', $prev->tags),
                                 "%AUTHOR%" => $prev->metadata->author
                             ));
