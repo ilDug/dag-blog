@@ -1,0 +1,9 @@
+FROM cr.dag.lan/dagblog-web as website
+FROM php:8-fpm-bullseye
+WORKDIR /app
+
+# cartella delle configurazioni
+COPY ./config/php/php.ini /usr/local/etc/php/php.ini
+
+# copia il sito web dall'immagiine appena create HTML
+COPY --from=website /app /app

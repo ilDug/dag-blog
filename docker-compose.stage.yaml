@@ -10,10 +10,8 @@ services:
 
   blog:
     container_name: dagblogweb
-    image: nginx
+    image: cr.dag.lan/dagblog-web:latest
     restart: unless-stopped
-    # ports:
-    #   - 8710:80
     environment:
       MODE: PRODUCTION
       TZ: Europe/Rome
@@ -22,9 +20,7 @@ services:
     depends_on:
       - php
     volumes:
-      - ./web:/app # cartella del sito
       - ./assets:/app/assets # collegamento ai file statici
-      - ./config/nginx:/etc/nginx/conf.d
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     networks:
@@ -39,12 +35,10 @@ services:
 
   php:
     container_name: dagblogphp
-    image: php:8-fpm-bullseye
+    image: cr.dag.lan/dagblog-php:latest
     restart: unless-stopped
     volumes:
-      - ./web:/app
       - ./assets:/app/assets # collegamento ai file statici
-      - ./config/php/php.ini:/usr/local/etc/php/php.ini
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
