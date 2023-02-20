@@ -9,8 +9,8 @@
         $post->summary,
         "https://blog.dagtech.it" . $post->image->src,
         "https://blog.dagtech.it/" . $post->metadata->url,
-        $post->metatadta->date,
-        $post->metatadta->update
+        $post->metadata->date,
+        $post->metadata->update
     ]);
     \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS'])
     ?>
