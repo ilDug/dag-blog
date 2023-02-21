@@ -122,8 +122,9 @@ $post-max-width: 660px;
 
     figure.figure {
         width: 100%;
+        // height: $post-img-height;
+        aspect-ratio: 16/9;
         overflow: hidden;
-        height: $post-img-height;
         border-radius: $post-border-radius;
         img {
             object-fit: cover;
