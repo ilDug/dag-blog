@@ -83,7 +83,7 @@ class Post
      */
     static function parsedown($mardown): string
     {
-        $pd = new \Parsedown();
+        $pd = new ParsedownMath();
         return $pd->text($mardown);
     }
 
