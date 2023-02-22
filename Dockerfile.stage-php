@@ -1,4 +1,4 @@
-FROM cr.dag.lan/dagblog-web as website
+FROM cr.dag.lan/dagblog-web:latest as website
 FROM php:8-fpm-bullseye
 WORKDIR /app
 
