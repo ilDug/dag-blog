@@ -63,51 +63,29 @@
                             </p>
                         </div>
 
-                        <div class="home-article">
-                            <div class="card h-100 d-flex flex-column">
-                                <div class="card-img-container">
-                                    <img src="%IMGSRC%" class="" alt="%IMGALT%">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="%LINK%">%TITLE%</a></h5>
-                                    <p class="card-text">%SUMMARY%</p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            <em class="me-3"><i class="fa-light fa-calendar ms-2 me-1"></i> %DATE%</em>
-                                        </small>
-                                        <br>
-                                        <small class="text-muted">
-                                            %TAGS%
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+
+                        <?php
+                        $articles = \DAG\Blog::load(6);
+                        foreach ($articles as $a) {
+                            $card = new \ilDug\Template(__DIR__ . "/templates/article_home_template.html");
+                            $card->compile(array(
+                                "%IMGSRC%" => $a->image->src,
+                                "%IMGALT%" => $a->image->alt,
+                                "%LINK%" => $a->metadata->url,
+                                "%TITLE%" => $a->metadata->title,
+                                "%SUMMARY%" => $a->summary,
+                                "%DATE%" => $a->metadata->update,
+                                "%TAGS%" => implode('', $a->tags),
+                                "%AUTHOR%" => $a->metadata->author
+                            ));
+                            echo $card->payload;
+                        }
+                        ?>
 
 
-                        <div class="home-article">
-                            <div class="card h-100 d-flex flex-column">
-                                <div class="card-img-container">
-                                    <img src="%IMGSRC%" class="" alt="%IMGALT%">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="%LINK%">%TITLE%</a></h5>
-                                    <p class="card-text">%SUMMARY%</p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            <em class="me-3"><i class="fa-light fa-calendar ms-2 me-1"></i> %DATE%</em>
-                                            <strong class="me-3"><i class="fa-brands fa-github ms-2 me-1"></i> %AUTHOR%</strong>
-                                        </small>
-                                        <br>
-                                        <small class="text-muted">
-                                            %TAGS%
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
 
+                        <!-- 
                         <div class="home-article">
                             <div class="card h-100 d-flex flex-column">
                                 <div class="card-img-container">
@@ -128,76 +106,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="home-article">
-                            <div class="card h-100 d-flex flex-column">
-                                <div class="card-img-container">
-                                    <img src="%IMGSRC%" class="" alt="%IMGALT%">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="%LINK%">%TITLE%</a></h5>
-                                    <p class="card-text">%SUMMARY%</p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            <em class="me-3"><i class="fa-light fa-calendar ms-2 me-1"></i> %DATE%</em>
-                                            <strong class="me-3"><i class="fa-brands fa-github ms-2 me-1"></i> %AUTHOR%</strong>
-                                        </small>
-                                        <br>
-                                        <small class="text-muted">
-                                            %TAGS%
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="home-article">
-                            <div class="card h-100 d-flex flex-column">
-                                <div class="card-img-container">
-                                    <img src="%IMGSRC%" class="" alt="%IMGALT%">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="%LINK%">%TITLE%</a></h5>
-                                    <p class="card-text">%SUMMARY%</p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            <em class="me-3"><i class="fa-light fa-calendar ms-2 me-1"></i> %DATE%</em>
-                                            <strong class="me-3"><i class="fa-brands fa-github ms-2 me-1"></i> %AUTHOR%</strong>
-                                        </small>
-                                        <br>
-                                        <small class="text-muted">
-                                            %TAGS%
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="home-article">
-                            <div class="card h-100 d-flex flex-column">
-                                <div class="card-img-container">
-                                    <img src="%IMGSRC%" class="" alt="%IMGALT%">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="%LINK%">%TITLE%</a></h5>
-                                    <p class="card-text">%SUMMARY%</p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            <em class="me-3"><i class="fa-light fa-calendar ms-2 me-1"></i> %DATE%</em>
-                                            <strong class="me-3"><i class="fa-brands fa-github ms-2 me-1"></i> %AUTHOR%</strong>
-                                        </small>
-                                        <br>
-                                        <small class="text-muted">
-                                            %TAGS%
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        </div> -->
 
 
 
