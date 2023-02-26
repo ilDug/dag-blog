@@ -43,7 +43,6 @@ ssh root@$DOCKER_HOST "mkdir -p /docker/dagblog/assets/blog"
 rsync -auvh --progress -e ssh /Volumes/DagStorage/dagtech/posts $DOCKER_HOST:/docker/dagblog/assets/blog/
 
 # esegue doker compose
-ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB:latest && docker pull $IMAGE_PHP:latest"
-ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB:latest && docker pull $IMAGE_PHP:latest"
+ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB && docker pull $IMAGE_PHP"
 ssh  root@$DOCKER_HOST "cd /docker/dagblog && docker compose up -d --force-recreate --pull always"
 # ssh  root@$DOCKER_HOST "docker image prune -f"
