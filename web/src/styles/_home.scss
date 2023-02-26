@@ -1,9 +1,30 @@
-#home{
-    #landing{
+#home {
+    #landing {
         text-align: center;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr 2fr;
 
-        img.home-logo{
-                width: clamp(200px, 50vw, 400px);
+        img.home-logo {
+            width: clamp(200px, 50vw, 400px);
+        }
+
+        #home-title {
+            h1 {
+                font-size: 5rem;
+            }
+            grid-row-start: 1;
+            grid-column: 2 / span 2;
+        }
+
+        #home-motto {
+            padding-top: 5rem;
+            grid-row: 2 / 7;
+            grid-column: 3;
+        }
+
+        .home-article {
+            grid-row: span 2;
         }
     }
 }
