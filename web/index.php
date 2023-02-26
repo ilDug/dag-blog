@@ -30,7 +30,7 @@ $router->get('/privacy/cookies', function () {
 
 $router->get('/{post_id}/{title}', function ($post_id) {
 
-    \ilDug\Web\Meta::$TEMPLATE = __DIR__ . "/lib/meta/meta-tags.html";
+    \ilDug\Web\Meta::$TEMPLATE = __DIR__ . "/lib/meta/meta-tags-post.html";
     \ilDug\Web\Meta::$PLACEHOLDERS = array('%TITLE%', '%DESCRIPTION%', '%MAIN_IMAGE%', '%URL%', '%DATE%', '%UPDATE%',);
 
     try {
