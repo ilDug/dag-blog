@@ -13,7 +13,7 @@ services:
     image: cr.dag.lan/dagblog-web:latest
     restart: unless-stopped
     environment:
-      MODE: PRODUCTION
+      MODE: STAGING
       TZ: Europe/Rome
     links:
       - php
@@ -42,7 +42,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
-      MODE: PRODUCTION
+      MODE: STAGING
       TZ: Europe/Rome
     networks:
       - default

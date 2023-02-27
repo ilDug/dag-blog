@@ -48,7 +48,7 @@ class Blog
             } else break;
             $article = new  Article($archive[$i]);
             //se l'articolo è attivo, ferma il loop
-            $loop = !$article->metadata->publish;
+            $loop = !$article->metadata->publish && $_ENV["MODE"] === "PRODUCTION";
         } while ($loop);
 
         return $article;
@@ -81,7 +81,7 @@ class Blog
 
         foreach ($archive as $id) {
             $a = new Article($id);
-            if ($a->metadata->publish)
+            if ($a->metadata->publish || $_ENV["MODE"] !== "PRODUCTION")
                 $articles[] = $a;
         }
 
