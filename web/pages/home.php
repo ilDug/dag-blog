@@ -22,7 +22,7 @@
 
     <section id="home" class="page-content">
         <div class="container">
-            <div class="row mt-3">
+            <div class="row my-3">
                 <div class="col-12">
                     <div id="landing">
 
@@ -37,7 +37,9 @@
                             <p class="text-center">
                                 <img src="/assets/images/dag-tech-logo-sq.png" alt="" class="home-logo img-fluid">
                             </p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem exercitationem pariatur obcaecati nostrum? Ea, recusandae eius doloremque explicabo atque ipsa unde eos quasi optio tempora in nemo voluptate. Maxime, ipsum!</p>
+                            <p>
+                               <em>"La tecnologia cambia velocemente, ma appoggia su solide basi."</em> Articoli, guide e consigli per aiutare gli sviluppatori a trovare soluzioni, ampliare competenze e migliorare l'esperienza di programmazione. 
+                            </p>
 
                             <p class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Ricerca articoli</label>
