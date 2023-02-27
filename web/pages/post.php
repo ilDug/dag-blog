@@ -30,6 +30,10 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-7">
                     <div class="metadata">
+
+                        <!-- AVVISA quando il post non è attivo. -->
+                        <?php echo $post->metadata->publish === false ? '<div class="alert alert-warning" role="alert"> POST NON ATTIVO! </div>' : ''; ?>
+
                         <p class="mb-0 ">
                             <span>author:
                                 <strong>
