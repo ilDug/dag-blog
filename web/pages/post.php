@@ -29,10 +29,12 @@
             <div class="row mt-3">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-7">
+
+                    <!-- AVVISA quando il post non è attivo. -->
+                    <?php echo $post->metadata->publish === false ? '<div class="alert alert-warning text-warning" role="alert"> <i class="fa-light fa-exclamation-triangle me-3"></i> POST NON ATTIVO! </div>' : ''; ?>
+
                     <div class="metadata">
 
-                        <!-- AVVISA quando il post non è attivo. -->
-                        <?php echo $post->metadata->publish === false ? '<div class="alert alert-warning" role="alert"> POST NON ATTIVO! </div>' : ''; ?>
 
                         <p class="mb-0 ">
                             <span>author:

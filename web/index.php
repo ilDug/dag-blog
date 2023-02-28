@@ -38,7 +38,7 @@ $router->get('/{post_id}/{title}', function ($post_id) {
         $post = new \DAG\Post($post_id);
 
         /** se il post non è attivo,  lancia una Excwption */
-        if (!$post->metadata->publish && $_ENV["MODE"] === "PRODUCTION") throw new \Exception("post non più attivo", 404);
+        if (!$post->metadata->publish && getenv("MODE") === "PRODUCTION") throw new \Exception("post non più attivo", 404);
 
         require __DIR__ . '/pages/post.php';
 
