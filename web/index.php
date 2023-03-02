@@ -27,6 +27,11 @@ $router->get('/privacy/cookies', function () {
 });
 
 
+$router->get('/api/v1/blog/posts', function () {
+    require __DIR__ . "/lib/API/archive.php";
+});
+
+
 
 $router->get('/{post_id}/{title}', function ($post_id) {
 
