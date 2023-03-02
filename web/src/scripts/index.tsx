@@ -5,6 +5,9 @@ import hljs from "highlight.js";
 import 'highlight.js/scss/github-dark-dimmed.scss';
 import { DagTyperSetup } from "./typer";
 
+import React, { Context } from "react";
+import { createRoot, Root } from "react-dom/client";
+
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
 
 window.onload = async () => {
@@ -97,5 +100,24 @@ window.onload = async () => {
             spanCopyBtn.appendChild(copyBtn);
             block.parentElement.appendChild(spanCopyBtn);
         })
+
+
+    /**
+     * SEARCH PAGE 
+     */
+    const searchList = document.getElementById('results-list');
+    if (searchList) {
+        console.log("Pagina Ricerca Avviata");
+        /** creazione del container */
+        const root: Root = createRoot(searchList!);
+        root.render(
+            // <ConfigsCtx.Provider value={cnf}>
+            //     <DccApp consentCtrl={consentCtrl} />
+            // </ConfigsCtx.Provider>
+        );
+
+
+    }
+
 
 }
