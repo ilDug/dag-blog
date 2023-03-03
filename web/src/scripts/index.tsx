@@ -8,6 +8,8 @@ import { DagTyperSetup } from "./typer";
 import React, { Context } from "react";
 import { createRoot, Root } from "react-dom/client";
 
+import SearchApp from "./components/search-app";
+
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
 
 window.onload = async () => {
@@ -105,16 +107,17 @@ window.onload = async () => {
     /**
      * SEARCH PAGE 
      */
-    const searchList = document.getElementById('results-list');
-    if (searchList) {
+    const searchApp = document.getElementById('search-app');
+    if (searchApp) {
         console.log("Pagina Ricerca Avviata");
+        // const resultList: HTMLDivElement = document.getElementById('results-list');
+        // const searchInput: HTMLInputElement = document.getElementById('search-input');
+
+        const initialValue = searchApp.getAttribute('data-search');
+
         /** creazione del container */
-        const root: Root = createRoot(searchList!);
-        root.render(
-            // <ConfigsCtx.Provider value={cnf}>
-            //     <DccApp consentCtrl={consentCtrl} />
-            // </ConfigsCtx.Provider>
-        );
+        const root: Root = createRoot(searchApp!);
+        root.render(<SearchApp searchValue={initialValue} />);
 
 
     }

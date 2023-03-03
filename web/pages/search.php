@@ -24,18 +24,8 @@
         <div class="container">
             <div class="row my-3">
                 <div class="col-12">
-                    <h1>Ricerca Articoli</h1>
-                    <p>
-                        <input type="text">
-
-                    </p>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <div id="results-list">
-                            qui ci va il Component di REACTJS
-                        </div>
+                    <div id="search-app" data-search="<?php echo $_GET['q'] ?? ''; ?>">
+                        <!-- react application -->
                     </div>
                 </div>
             </div>
