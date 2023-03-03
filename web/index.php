@@ -10,7 +10,6 @@ require __DIR__ . "/vendor/autoload.php";
 \ilDug\Web\Scripts::adopt("GOOGLE_ANALYTICS", __DIR__ . "/lib/scripts/google-analytics.template.html");
 
 
-
 $router = new \Bramus\Router\Router();
 
 /** HOME */
@@ -24,6 +23,10 @@ $router->get('/privacy/policy', function () {
 
 $router->get('/privacy/cookies', function () {
     require __DIR__ . '/pages/privacy-cookies.php';
+});
+
+$router->get('/search', function () {
+    require __DIR__ . "/pages/search.php";
 });
 
 
