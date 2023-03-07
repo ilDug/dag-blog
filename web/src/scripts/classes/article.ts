@@ -5,7 +5,7 @@ export class Article {
     }
 
     filepath: string;
-    metadata: object;
+    metadata: ArticleMetadata;
     image: string;
     summary: string;
     tags: string[];
