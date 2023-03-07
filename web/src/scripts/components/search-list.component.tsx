@@ -49,7 +49,7 @@ const SearchList: React.FC<Props> = ({ query }) => {
         <React.Fragment>
             <p>{query}</p>
             <ul>
-                {/* {results.map(a => <li key={a.metadata.code.toString()}>{a.metadata.title}</li>)} */}
+                {results.map(a => <li key={a.metadata.code.toString()}>{a.metadata.title}</li>)}
             </ul>
         </React.Fragment>
     );
