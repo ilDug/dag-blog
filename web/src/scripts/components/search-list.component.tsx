@@ -2,6 +2,7 @@ import Fuse from 'fuse.js';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Article } from '../classes/article';
+import SearchPost from './search-list-item.component';
 
 type Props = {
     query: string
@@ -48,9 +49,10 @@ const SearchList: React.FC<Props> = ({ query }) => {
     return (
         <React.Fragment>
             <p>{query}</p>
-            <ul>
-                {results.map(a => <li key={a.metadata.code.toString()}>{a.metadata.title}</li>)}
-            </ul>
+            <div>
+                {/* {results.map(a => <li key={a.metadata.code.toString()}>{a.metadata.title}</li>)} */}
+                {results.map(a => <SearchPost article={a} />)}
+            </div>
         </React.Fragment>
     );
 };

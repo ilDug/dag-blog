@@ -1,3 +1,5 @@
+
+
 export class Article {
     constructor(a: Partial<Article>) {
         a.metadata = new ArticleMetadata(a.metadata)
@@ -6,7 +8,7 @@ export class Article {
 
     filepath: string;
     metadata: ArticleMetadata;
-    image: string;
+    image: ArticleImage;
     summary: string;
     tags: string[];
 }
@@ -29,3 +31,11 @@ export class ArticleMetadata {
     tags: string[];
 
 }
+
+export type ArticleImage = {
+    markdown: string;
+    alt: string;
+    src: string;
+    html: string;
+};
+
