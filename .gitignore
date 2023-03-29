@@ -106,3 +106,5 @@ dist
 assets/blog/
 
 .vscode/sftp.json
+
+venv/
