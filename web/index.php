@@ -44,7 +44,6 @@ $router->get('/{post_id}/{title}', function ($post_id) {
     try {
         /** definisce la variabile post da consumare nella pagina dedicata al post. */
         $post = new \DAG\Post($post_id);
-
         /** se il post non è attivo,  lancia una Excwption */
         if (!$post->metadata->publish && getenv("MODE") === "PRODUCTION") throw new \Exception("post non più attivo", 404);
 

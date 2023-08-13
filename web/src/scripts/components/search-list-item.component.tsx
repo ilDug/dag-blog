@@ -19,7 +19,7 @@ const SearchPost: React.FC<Props> = ({ article }) => {
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title"><a href="%LINK%">{article.metadata.title}</a></h5>
+                            <h5 className="card-title"><a href={article.metadata.url}>{article.metadata.title}</a></h5>
                             <p className="card-text">{article.summary}</p>
                             <p className="card-text">
                                 <small className="text-muted">

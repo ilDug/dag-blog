@@ -7,10 +7,8 @@ type Props = { searchValue: string }
 const SearchApp: React.FC<Props> = ({ searchValue }) => {
     const [query, setQuery] = useState(searchValue)
 
-
     const handleQueryChange = (event) => {
         let q = event.target.value;
-        console.log(q);
         setQuery(q);
     }
 

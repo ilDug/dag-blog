@@ -112,12 +112,14 @@ window.onload = async () => {
         console.log("Pagina Ricerca Avviata");
         // const resultList: HTMLDivElement = document.getElementById('results-list');
         // const searchInput: HTMLInputElement = document.getElementById('search-input');
+        // const initialValue = searchApp.getAttribute('data-search');
 
-        const initialValue = searchApp.getAttribute('data-search');
+        const searchParams = new URLSearchParams(document.location.search)
+        const q = searchParams.get('q');
 
         /** creazione del container */
         const root: Root = createRoot(searchApp!);
-        root.render(<SearchApp searchValue={initialValue} />);
+        root.render(<SearchApp searchValue={q} />);
 
 
     }

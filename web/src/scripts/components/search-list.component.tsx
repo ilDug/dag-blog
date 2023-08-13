@@ -23,11 +23,9 @@ const SearchList: React.FC<Props> = ({ query }) => {
     /** carica la lista degli articoli dall'api. */
     useEffect(() => {
         const loadArticles = async () => {
-            console.log(query, "questa è l'effect della Search List");
-
             const res = await fetch('/api/v1/blog/posts');
             const articles: Article[] = await res
-            .json()
+                .json()
                 .then((list: any[]) => list.map(a => new Article(a)));
             setArchive(articles);
             setResults(articles);
@@ -38,7 +36,7 @@ const SearchList: React.FC<Props> = ({ query }) => {
 
     /** filtra i risultati con FuseJs */
     useEffect(() => {
-        // console.log(query, "effectHook nella SearchList");
+        console.log(query, "effectHook nella SearchList");
         const fuse = new Fuse(archive, fuseOpts)
         const res = !query ? archive : fuse.search(query).map(a => a.item);
         setResults(res);
@@ -48,7 +46,6 @@ const SearchList: React.FC<Props> = ({ query }) => {
 
     return (
         <React.Fragment>
-            <p>{query}</p>
             <div>
                 {/* {results.map(a => <li key={a.metadata.code.toString()}>{a.metadata.title}</li>)} */}
                 {results.map(a => <SearchPost article={a} />)}
