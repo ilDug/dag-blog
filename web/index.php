@@ -10,7 +10,6 @@ require __DIR__ . "/vendor/autoload.php";
 \ilDug\Web\Scripts::adopt("GOOGLE_ANALYTICS", __DIR__ . "/lib/scripts/google-analytics.template.html");
 
 
-
 $router = new \Bramus\Router\Router();
 
 /** HOME */
@@ -26,6 +25,15 @@ $router->get('/privacy/cookies', function () {
     require __DIR__ . '/pages/privacy-cookies.php';
 });
 
+$router->get('/search', function () {
+    require __DIR__ . "/pages/search.php";
+});
+
+
+$router->get('/api/v1/blog/posts', function () {
+    require __DIR__ . "/lib/API/archive.php";
+});
+
 
 
 $router->get('/{post_id}/{title}', function ($post_id) {
@@ -36,7 +44,6 @@ $router->get('/{post_id}/{title}', function ($post_id) {
     try {
         /** definisce la variabile post da consumare nella pagina dedicata al post. */
         $post = new \DAG\Post($post_id);
-
         /** se il post non è attivo,  lancia una Excwption */
         if (!$post->metadata->publish && getenv("MODE") === "PRODUCTION") throw new \Exception("post non più attivo", 404);
 

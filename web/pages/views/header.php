@@ -92,8 +92,8 @@
 
             <hr class="text-white-50">
 
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" method="get" action="/search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
                 <button class="btn btn-outline-secondary" type="submit">Search</button>
             </form>
 

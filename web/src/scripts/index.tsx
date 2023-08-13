@@ -5,6 +5,11 @@ import hljs from "highlight.js";
 import 'highlight.js/scss/github-dark-dimmed.scss';
 import { DagTyperSetup } from "./typer";
 
+import React, { Context } from "react";
+import { createRoot, Root } from "react-dom/client";
+
+import SearchApp from "./components/search-app";
+
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
 
 window.onload = async () => {
@@ -97,5 +102,27 @@ window.onload = async () => {
             spanCopyBtn.appendChild(copyBtn);
             block.parentElement.appendChild(spanCopyBtn);
         })
+
+
+    /**
+     * SEARCH PAGE 
+     */
+    const searchApp = document.getElementById('search-app');
+    if (searchApp) {
+        console.log("Pagina Ricerca Avviata");
+        // const resultList: HTMLDivElement = document.getElementById('results-list');
+        // const searchInput: HTMLInputElement = document.getElementById('search-input');
+        // const initialValue = searchApp.getAttribute('data-search');
+
+        const searchParams = new URLSearchParams(document.location.search)
+        const q = searchParams.get('q');
+
+        /** creazione del container */
+        const root: Root = createRoot(searchApp!);
+        root.render(<SearchApp searchValue={q} />);
+
+
+    }
+
 
 }

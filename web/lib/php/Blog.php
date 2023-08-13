@@ -88,7 +88,7 @@ class Blog
         /** ordina in base alla data */
         usort($articles, [Blog::class, 'sort_by_date']);
 
-        return array_slice($articles, 0, 6);
+        return array_slice($articles, 0, $count);
         // return $articles;
     }
 

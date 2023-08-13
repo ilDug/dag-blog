@@ -38,12 +38,14 @@
                                 <img src="/assets/images/dag-tech-logo-sq.png" alt="" class="home-logo img-fluid">
                             </p>
                             <p>
-                               <em>"La tecnologia cambia velocemente, ma appoggia su solide basi."</em> Articoli, guide e consigli per aiutare gli sviluppatori a trovare soluzioni, ampliare competenze e migliorare l'esperienza di programmazione. 
+                                <em>"La tecnologia cambia velocemente, ma appoggia su solide basi."</em> Articoli, guide e consigli per aiutare gli sviluppatori a trovare soluzioni, ampliare competenze e migliorare l'esperienza di programmazione.
                             </p>
 
-                            <p class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Ricerca articoli</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="...">
+                            <p class="mb-3 mt-5 text-center">
+                                <a href="/search" class="btn btn-primary">
+                                    <i class="fa-light fa-magnifying-glass me-2 "></i>
+                                    Ricerca Articoli
+                                </a>
                             </p>
                         </div>
 
