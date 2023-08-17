@@ -9,7 +9,7 @@
         "DAG BLOG - il blog di DagTech - Privacy policy",
         "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
     ]);
-    \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS'])
+    \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS']);
     ?>
 
     <!-- STYLES  -->
