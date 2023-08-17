@@ -33,7 +33,10 @@ class Post
         $this->path = self::get_md_file_path_from_id($post_id);
         $this->metadata = self::extract_metadata($this->path);
         $this->markdown = $this->metadata->body();
-        $this->body = self::parse_images(self::parsedown($this->markdown));
+
+        $pd = new ParseDag($this->markdown);
+        $this->body = $pd->body;
+        
         $this->image = self::main_image($this->markdown);
         $this->summary = self::generate_summary($this->markdown);
     }
@@ -78,23 +81,7 @@ class Post
         return $matter;
     }
 
-    /**
-     * trasforma il contenuto con parsedown
-     */
-    static function parsedown($mardown): string
-    {
-        $pd = new \Parsedown();
-        return $pd->text($mardown);
-    }
 
-
-    /** 
-     * inserisce le immagini in un elemento per la visualizzazione corretta
-     */
-    static function parse_images($body)
-    {
-        return preg_replace('/<img([\w\W]+?)\/>/', '<figure class="figure"><img $1 class=""/></figure>', $body);
-    }
 
 
     /**
@@ -115,7 +102,7 @@ class Post
         $image['alt'] = $matches[1] ?? null;
         $image['src'] = $matches[2] ?? null;
         $image['html'] = $pd->text($image['markdown']) ?? null;
-        $image['html'] = self::parse_images($image['html']) ?? null;
+        $image['html'] = ParseDag::parse_images($image['html']) ?? null;
         return (object) $image;
     }
 

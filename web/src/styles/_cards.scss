@@ -8,7 +8,8 @@
         border-radius: $post-border-radius;
 
         @include media-breakpoint-down(md) { 
-            max-height: 256px;
+            // max-height: 256px;
+            aspect-ratio: 16/9;
         }
     }
 

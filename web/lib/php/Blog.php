@@ -48,7 +48,7 @@ class Blog
             } else break;
             $article = new  Article($archive[$i]);
             //se l'articolo è attivo, ferma il loop
-            $loop = !$article->metadata->publish;
+            $loop = !$article->metadata->publish && getenv("MODE") === "PRODUCTION";
         } while ($loop);
 
         return $article;
@@ -71,31 +71,34 @@ class Blog
     /**
      * carica tutti gli Articolo che hanno la proprietà Publised.
      */
-    static function load(): array
+    static function load($count = null): array
     {
         $archive = self::archive();
         if (count($archive) == 0) return [];
 
+        $count = $count ??  count($archive);
         $articles = array();
 
         foreach ($archive as $id) {
             $a = new Article($id);
-            if ($a->metadata->published)
-                $article[] = $a;
-        }
-
-        function sort_by_date(Article $a, Article $b)
-        {
-            $dateA =  strtotime($a->metadata->update);
-            $dateB =  strtotime($b->metadata->update);
-
-            if ($dateA == $dateB) return 0;
-            return ($dateA < $dateB) ? -1 : 1;
+            if ($a->metadata->publish || getenv("MODE") !== "PRODUCTION")
+                $articles[] = $a;
         }
 
         /** ordina in base alla data */
-        usort($articles, 'sort_by_date');
+        usort($articles, [Blog::class, 'sort_by_date']);
 
-        return $articles;
+        return array_slice($articles, 0, $count);
+        // return $articles;
+    }
+
+
+    static function sort_by_date(Article $a, Article $b)
+    {
+        $dateA =  strtotime($a->metadata->update);
+        $dateB =  strtotime($b->metadata->update);
+
+        if ($dateA == $dateB) return 0;
+        return ($dateA < $dateB) ? 1 : -1;
     }
 }
