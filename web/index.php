@@ -36,6 +36,11 @@ $router->get('/api/v1/blog/posts', function () {
 });
 
 
+$router->get('/sitemap.xml', function () {
+    require __DIR__ . "/lib/API/sitemap.php";
+});
+
+
 
 $router->get('/{post_id}/{title}', function ($post_id) {
 
