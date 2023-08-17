@@ -40,6 +40,11 @@ $router->get('/sitemap.xml', function () {
     require __DIR__ . "/lib/API/sitemap.php";
 });
 
+$router->get('/ads.txt', function () {
+    $t = file_get_contents("ads.txt");
+    echo $t;
+});
+
 
 
 $router->get('/{post_id}/{title}', function ($post_id) {
