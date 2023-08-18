@@ -41,7 +41,7 @@ $router->get('/sitemap.xml', function () {
 });
 
 $router->get('/ads.txt', function () {
-    $t = file_get_contents("ads.txt");
+    $t = file_get_contents("assets/ads.txt");
     echo $t;
 });
 
