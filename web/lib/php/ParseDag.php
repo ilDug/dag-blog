@@ -12,6 +12,7 @@ class ParseDag
         $this->body = self::parse_latex($markdown);
         $this->body = self::parse_images($this->body);
         $this->body = self::parse_tables($this->body);
+        $this->body = self::parse_ads($this->body);
     }
 
 
@@ -40,5 +41,15 @@ class ParseDag
     static function parse_images($body)
     {
         return preg_replace('/<img([\w\W]+?)\/>/', '<figure class="figure"><img $1 class=""/></figure>', $body);
+    }
+
+
+    /**
+     * inserisce gli script per gli annunci nel segnaposto
+     */
+    static function parse_ads($body)
+    {
+        $script = file_get_contents(\DAG\Config::$adsScriptTemplate);
+        return preg_replace('/<span data-ads="(\d*)"><\/span>/', $script, $body);
     }
 }

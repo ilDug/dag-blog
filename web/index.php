@@ -8,7 +8,7 @@ require __DIR__ . "/vendor/autoload.php";
 
 /** adotta gli script da pubblicare */
 \ilDug\Web\Scripts::adopt("GOOGLE_ANALYTICS", __DIR__ . "/lib/scripts/google-analytics.template.html");
-\ilDug\Web\Scripts::adopt("GOOGLE_ADS", __DIR__ . "/lib/scripts/google-ads.template.html");
+// \ilDug\Web\Scripts::adopt("GOOGLE_ADS", __DIR__ . "/lib/scripts/google-ads.template.html");
 
 
 $router = new \Bramus\Router\Router();
