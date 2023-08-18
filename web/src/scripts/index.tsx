@@ -105,6 +105,29 @@ window.onload = async () => {
 
 
     /**
+     * Annunci ADSESNE
+     */
+    // if (dcc.isConsentGiven('targeting')) {
+    console.log(dcc.isConsentGiven('targeting'));
+
+    document
+        .querySelectorAll(".article span[data-ads]")
+        .forEach(ads => {
+            ads.innerHTML = `
+                    <script type="text/javascript"  async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3060490671697073" crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3060490671697073" data-ad-slot="1410244111"></ins>
+                    <script type="text/javascript" >
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                `;
+        });
+
+    // }
+
+
+
+
+    /**
      * SEARCH PAGE 
      */
     const searchApp = document.getElementById('search-app');

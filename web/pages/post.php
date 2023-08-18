@@ -12,7 +12,7 @@
         $post->metadata->date,
         $post->metadata->update
     ]);
-    \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS', 'GOOGLE_ADS']);
+    \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS']);
     ?>
 
     <!-- STYLES  -->
