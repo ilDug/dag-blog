@@ -24,8 +24,6 @@
         <div class="container">
             <div class="row my-3">
                 <div class="col-12">
-                    <!-- <div id="search-app" data-search="<?php //echo $_GET['q'] ?? ''; 
-                                                            ?>"> -->
                     <div id="search-app">
                         <!-- react application -->
                     </div>

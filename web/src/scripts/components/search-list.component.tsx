@@ -47,8 +47,7 @@ const SearchList: React.FC<Props> = ({ query }) => {
     return (
         <React.Fragment>
             <div>
-                {/* {results.map(a => <li key={a.metadata.code.toString()}>{a.metadata.title}</li>)} */}
-                {results.map(a => <SearchPost article={a} />)}
+                {results.map(a => <SearchPost article={a} key={a.metadata.code.toString()} />)}
             </div>
         </React.Fragment>
     );
