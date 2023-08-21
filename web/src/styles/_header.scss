@@ -38,7 +38,7 @@ header {
         height: 100%;
         font-family: $font-family-headings;
         font-weight: bolder;
-        a{
+        a {
             padding: 0;
             color: $gray-100;
         }
@@ -46,7 +46,7 @@ header {
             height: 100%;
         }
         @include media-breakpoint-down(md) {
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         @include media-breakpoint-up(md) {
@@ -67,10 +67,14 @@ header {
             li {
                 list-style: none;
                 text-indent: 0;
-                padding: 0 0.75rem;
+                padding: 0 0.25rem;
                 i.icon {
                     //   display: none;
                     display: inline;
+                }
+
+                @include media-breakpoint-up(md) {
+                    padding: 0 0.75rem;
                 }
             }
         }

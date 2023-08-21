@@ -5,7 +5,7 @@
             <span style="font-size:1.2em;vertical-align:middle;" class="dag-cursor" data-cursorDisplay="|" data-owner="dag-typer-banner"></span>
         </p>
         <div id="social">
-            <a href="#" target="_blank"><i class="fa-brands mx-3 fa-youtube"></i></a>
+            <!-- <a href="#" target="_blank"><i class="fa-brands mx-3 fa-youtube"></i></a> -->
             <a href="#" target="_blank"><i class="fa-brands mx-3 fa-twitter"></i></a>
             <a href="https://github.com/ilDug" target="_blank"><i class="fa-brands mx-3 fa-github"></i></a>
             <a href="https://www.buymeacoffee.com/ilDug" target="_blank"><i class="fa-regular mx-3 fa-cup-togo"></i></a>
@@ -26,6 +26,12 @@
                     <li class="" id="nav-about">
                         <i class="fa-duotone fa-square-terminal mr-1"></i>
                         blog
+                    </li>
+                </a>
+                <a href="/search">
+                    <li class="" id="nav-about">
+                        <i class="fa-duotone fa-magnifying-glass mr-1"></i>
+                        search
                     </li>
                 </a>
             </ul>
@@ -62,12 +68,12 @@
                         <small class="ms-2">Twitter @ilDug</small>
                     </a>
                 </li>
-                <li class="nav-item col-6">
+                <!-- <li class="nav-item col-6">
                     <a class="nav-link py-2 px-0" href="#" target="_blank">
                         <i class="fa-brands fa-youtube"></i>
                         <small class="ms-2">YouTube</small>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item col-6">
                     <a class="nav-link py-2 px-0" href="https://github.com/ilDug" target="_blank">
                         <i class="fa-brands fa-github"></i>
