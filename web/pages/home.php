@@ -21,6 +21,10 @@
     <?php include __DIR__ . '/views/header.php'; ?>
 
     <section id="home" class="page-content">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="" fill-opacity="1" d="M0,128L480,192L960,256L1440,64L1440,0L960,0L480,0L0,0Z"></path>
+        </svg>
+
         <div class="container">
             <div class="row my-3">
                 <div class="col-12">
