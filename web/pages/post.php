@@ -25,6 +25,14 @@
     ?>
 
     <section id="post" class="page-content">
+
+        <div id="sidebar">
+            <ul>
+                <li>cal_info</li>
+                <li>ccooc</li>
+                <li>dsasd</li>
+            </ul>
+        </div>
         <div class="container">
             <div class="row mt-3">
                 <div class="col-lg-2"></div>
