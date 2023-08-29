@@ -28,11 +28,21 @@
 
         <div id="sidebar">
             <ul>
-                <li>cal_info</li>
-                <li>ccooc</li>
-                <li>dsasd</li>
+                <li data-toggle="tooltip" title="I love it!">
+                    <a href="" class="side-item active">
+                        <i class="fa fa-light fa-heart"></i>
+                        <span class="side-item-text">12</span>
+                    </a>
+                </li>
+                <li data-toggle="tooltip" title="copy link">
+                    <a href="" class="side-item">
+                        <i class="fa fa-light fa-share-from-square"></i>
+                    </a>
+                </li>
+
             </ul>
         </div>
+
         <div class="container">
             <div class="row mt-3">
                 <div class="col-lg-2"></div>
