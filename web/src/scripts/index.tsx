@@ -9,6 +9,8 @@ import React, { Context } from "react";
 import { createRoot, Root } from "react-dom/client";
 
 import SearchApp from "./components/search-app";
+import ArticleLoveBtn from "./components/article-love-btn";
+import CopyLinkBtn from "./components/article-copy-link-btn";
 
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
 
@@ -105,6 +107,24 @@ window.onload = async () => {
 
 
     /**
+     * ARTICLE COPY LINK BTN
+     */
+    const copyLink: HTMLElement = document.querySelector("#post #sidebar #side-copy-link-btn")
+    if (copyLink) {
+        const linkCtn: Root = createRoot(copyLink!);
+        linkCtn.render(<CopyLinkBtn />);
+    }
+
+    /**
+     * ARTICLe LIKE BTN
+     */
+    const loveBtn: HTMLElement = document.querySelector("#post #sidebar #side-love-btn")
+    if (loveBtn) {
+        const loveCtn: Root = createRoot(loveBtn!);
+        loveCtn.render(<ArticleLoveBtn />);
+    }
+
+    /**
      * SEARCH PAGE 
      */
     const searchApp = document.getElementById('search-app');
@@ -120,8 +140,6 @@ window.onload = async () => {
         /** creazione del container */
         const root: Root = createRoot(searchApp!);
         root.render(<SearchApp searchValue={q} />);
-
-
     }
 
 

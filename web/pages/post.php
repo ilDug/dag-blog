@@ -25,6 +25,20 @@
     ?>
 
     <section id="post" class="page-content">
+
+        <div id="sidebar">
+            <ul>
+                <li data-toggle="tooltip" title="I love it!">
+                    <span id="side-love-btn"></span>
+                </li>
+                <li data-toggle="tooltip" title="copy link">
+
+                    <span id="side-copy-link-btn"></span>
+                </li>
+
+            </ul>
+        </div>
+
         <div class="container">
             <div class="row mt-3">
                 <div class="col-lg-2"></div>
