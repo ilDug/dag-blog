@@ -10,6 +10,7 @@ import { createRoot, Root } from "react-dom/client";
 
 import SearchApp from "./components/search-app";
 import ArticleLoveBtn from "./components/article-love-btn";
+import CopyLinkBtn from "./components/article-copy-link-btn";
 
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
 
@@ -108,32 +109,11 @@ window.onload = async () => {
     /**
      * ARTICLE COPY LINK BTN
      */
-    const copyLinkBtn: HTMLAnchorElement = document
-        .querySelector("#post #sidebar a.side-copy-btn");
-
-    if (copyLinkBtn) {
-
-        copyLinkBtn.addEventListener('click', async (e: Event) => {
-            e.preventDefault();
-            const copyLink = copyLinkBtn.href;
-            await navigator.clipboard.writeText(copyLink);
-
-            const copyIcon: HTMLElement = copyLinkBtn.querySelector("i.fa");
-            const copySpanText: HTMLSpanElement = copyLinkBtn.querySelector("span.side-item-text");
-
-            copyIcon.classList.remove("fa-share-from-square");
-            copyIcon.classList.add("fa-check");
-            copySpanText.classList.remove("d-none");
-
-            setTimeout(() => {
-                copyIcon.classList.remove("fa-check");
-                copyIcon.classList.add("fa-share-from-square");
-                copySpanText.classList.add("d-none");
-            }, 3000);
-        })
+    const copyLink: HTMLElement = document.querySelector("#post #sidebar #side-copy-link-btn")
+    if (copyLink) {
+        const linkCtn: Root = createRoot(copyLink!);
+        linkCtn.render(<CopyLinkBtn />);
     }
-
-
 
     /**
      * ARTICLe LIKE BTN

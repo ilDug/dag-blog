@@ -32,10 +32,8 @@
                     <span id="side-love-btn"></span>
                 </li>
                 <li data-toggle="tooltip" title="copy link">
-                    <a href="" class="side-item side-copy-btn">
-                        <i class="fa fa-light fa-share-from-square"></i>
-                        <span class="side-item-text d-none">copied!</span>
-                    </a>
+
+                    <span id="side-copy-link-btn"></span>
                 </li>
 
             </ul>
