@@ -29,10 +29,7 @@
         <div id="sidebar">
             <ul>
                 <li data-toggle="tooltip" title="I love it!">
-                    <a href="" class="side-item active">
-                        <i class="fa fa-light fa-heart"></i>
-                        <span class="side-item-text">...</span>
-                    </a>
+                    <span id="side-love-btn"></span>
                 </li>
                 <li data-toggle="tooltip" title="copy link">
                     <a href="" class="side-item side-copy-btn">

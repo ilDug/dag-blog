@@ -9,6 +9,7 @@ import React, { Context } from "react";
 import { createRoot, Root } from "react-dom/client";
 
 import SearchApp from "./components/search-app";
+import ArticleLoveBtn from "./components/article-love-btn";
 
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
 
@@ -105,7 +106,7 @@ window.onload = async () => {
 
 
     /**
-     * ARTICLe COPY LNK BTN
+     * ARTICLE COPY LINK BTN
      */
     const copyLinkBtn: HTMLAnchorElement = document
         .querySelector("#post #sidebar a.side-copy-btn");
@@ -134,9 +135,14 @@ window.onload = async () => {
 
 
 
-    /** */
-
-
+    /**
+     * ARTICLe LIKE BTN
+     */
+    const loveBtn: HTMLElement = document.querySelector("#post #sidebar #side-love-btn")
+    if (loveBtn) {
+        const loveCtn: Root = createRoot(loveBtn!);
+        loveCtn.render(<ArticleLoveBtn />);
+    }
 
     /**
      * SEARCH PAGE 
