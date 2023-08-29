@@ -105,6 +105,40 @@ window.onload = async () => {
 
 
     /**
+     * ARTICLe COPY LNK BTN
+     */
+    const copyLinkBtn: HTMLAnchorElement = document
+        .querySelector("#post #sidebar a.side-copy-btn");
+
+    if (copyLinkBtn) {
+
+        copyLinkBtn.addEventListener('click', async (e: Event) => {
+            e.preventDefault();
+            const copyLink = copyLinkBtn.href;
+            await navigator.clipboard.writeText(copyLink);
+
+            const copyIcon: HTMLElement = copyLinkBtn.querySelector("i.fa");
+            const copySpanText: HTMLSpanElement = copyLinkBtn.querySelector("span.side-item-text");
+
+            copyIcon.classList.remove("fa-share-from-square");
+            copyIcon.classList.add("fa-check");
+            copySpanText.classList.remove("d-none");
+
+            setTimeout(() => {
+                copyIcon.classList.remove("fa-check");
+                copyIcon.classList.add("fa-share-from-square");
+                copySpanText.classList.add("d-none");
+            }, 3000);
+        })
+    }
+
+
+
+    /** */
+
+
+
+    /**
      * SEARCH PAGE 
      */
     const searchApp = document.getElementById('search-app');
@@ -120,8 +154,6 @@ window.onload = async () => {
         /** creazione del container */
         const root: Root = createRoot(searchApp!);
         root.render(<SearchApp searchValue={q} />);
-
-
     }
 
 

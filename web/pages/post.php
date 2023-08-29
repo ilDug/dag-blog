@@ -31,12 +31,13 @@
                 <li data-toggle="tooltip" title="I love it!">
                     <a href="" class="side-item active">
                         <i class="fa fa-light fa-heart"></i>
-                        <span class="side-item-text">12</span>
+                        <span class="side-item-text">...</span>
                     </a>
                 </li>
                 <li data-toggle="tooltip" title="copy link">
-                    <a href="" class="side-item">
+                    <a href="" class="side-item side-copy-btn">
                         <i class="fa fa-light fa-share-from-square"></i>
+                        <span class="side-item-text d-none">copied!</span>
                     </a>
                 </li>
 
