@@ -6,7 +6,7 @@
     <?php
     \ilDug\Web\Meta::publish([
         "DAG BLOG - il blog di DagTech",
-        "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
+        "https://dagtech.it/blog/assets/images/dag-tech-logo-sq.png"
     ]);
     \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS']);
     ?>

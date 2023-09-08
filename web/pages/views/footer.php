@@ -4,10 +4,10 @@
             <div class="col-sm-3 mb-3">
                 <h5 class="text-muted">Links</h5>
                 <ul>
-                    <li><a href="/">Blog Home</a></li>
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/privacy/policy">privacy policy</a></li>
-                    <li><a href="/privacy/cookies">cookies policy</a></li>
+                    <li><a href="/blog/">Blog Home</a></li>
+                    <li><a href="/blog/search">Search</a></li>
+                    <li><a href="/blog/privacy/policy">privacy policy</a></li>
+                    <li><a href="/blog/privacy/cookies">cookies policy</a></li>
                     <li><a href="#" dcc-open>cookies settings</a> </li>
                 </ul>
             </div>
@@ -19,7 +19,7 @@
                     <a href="https://www.buymeacoffee.com/ilDug" target="_blank"><i class="fa-regular fa-2x mx-3 fa-cup-togo"></i></a>
                 </p>
                 <p>
-                    <img src="/assets/images/dag-tech-logo-sq.png" alt="Dag Tech" style="width:5rem;">
+                    <img src="/blog/assets/images/dag-tech-logo-sq.png" alt="Dag Tech" style="width:5rem;">
                 </p>
                 <p class="mb-0">© 2011 - <?php echo date('Y'); ?> Copyright @ilDug</p>
             </div>
@@ -27,7 +27,7 @@
                 <p data-toggle="tooltip" title="Buy me a coffee" class="text-center mb-4 text-muted">
                     <a href="https://www.buymeacoffee.com/ilDug" target="_blank">
                         <span style="width:3rem; display:inline-block;">
-                            <img src="/assets/images/bmc-logo.svg" alt="buy me a coffee" class="img-fluid">
+                            <img src="/blog/assets/images/bmc-logo.svg" alt="buy me a coffee" class="img-fluid">
                         </span>
                         <br>
                         <em class="text-muted">buy me a coffee!</em>

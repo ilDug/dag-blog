@@ -7,8 +7,8 @@
     \ilDug\Web\Meta::publish([
         $post->metadata->title,
         $post->summary,
-        "https://blog.dagtech.it" . $post->image->src,
-        "https://blog.dagtech.it/" . $post->metadata->url,
+        "https://dagtech.it" . $post->image->src,
+        "https://dagtech.it" . $post->metadata->url,
         $post->metadata->date,
         $post->metadata->update
     ]);
@@ -16,7 +16,7 @@
     ?>
 
     <!-- STYLES  -->
-    <link rel="stylesheet" href="/dist/styles.css">
+    <link rel="stylesheet" href="/blog/dist/styles.css">
 </head>
 
 <body>
@@ -32,10 +32,8 @@
                     <span id="side-love-btn"></span>
                 </li>
                 <li data-toggle="tooltip" title="copy link">
-
                     <span id="side-copy-link-btn"></span>
                 </li>
-
             </ul>
         </div>
 
@@ -129,7 +127,7 @@
 
     <?php include __DIR__ . '/views/footer.php'; ?>
 
-    <script type="text/javascript" src="/dist/bundle.js"></script>
+    <script type="text/javascript" src="/blog/dist/bundle.js"></script>
 </body>
 
 </html>

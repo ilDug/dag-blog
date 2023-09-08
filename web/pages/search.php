@@ -4,20 +4,18 @@
 <head>
     <!-- META -->
     <?php
-
     \ilDug\Web\Meta::publish([
         "DAG BLOG - il blog di DagTech",
-        "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
+        "https://dagtech.it/blog/assets/images/dag-tech-logo-sq.png"
     ]);
     \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS']);
     ?>
 
     <!-- STYLES  -->
-    <link rel="stylesheet" href="/dist/styles.css">
+    <link rel="stylesheet" href="/blog/dist/styles.css">
 </head>
 
 <body>
-
     <?php include __DIR__ . '/views/header.php'; ?>
 
     <section id="search" class="page-content">
@@ -34,7 +32,7 @@
 
     <?php include __DIR__ . '/views/footer.php'; ?>
 
-    <script type="text/javascript" src="/dist/bundle.js"></script>
+    <script type="text/javascript" src="/blog/dist/bundle.js"></script>
 </body>
 
 </html>

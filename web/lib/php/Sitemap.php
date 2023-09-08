@@ -33,7 +33,7 @@ XML;
 
     protected static function urlBlock($url, $lastmod, $priority): string
     {
-        $prefix = "https://blog.dagtech.it";
+        $prefix = "https://dagtech.it";
         $block  = "<url>";
         $block  .= "<loc>" . $prefix . $url . "</loc>";
         $block  .= "<lastmod>" . $lastmod .  "</lastmod>";
