@@ -5,7 +5,7 @@ import hljs from "highlight.js";
 import 'highlight.js/scss/github-dark-dimmed.scss';
 import { DagTyperSetup } from "./typer";
 
-import React, { Context } from "react";
+import React, { Context, createContext } from "react";
 import { createRoot, Root } from "react-dom/client";
 
 import SearchApp from "./components/search-app";
@@ -13,6 +13,10 @@ import ArticleLoveBtn from "./components/article-love-btn";
 import CopyLinkBtn from "./components/article-copy-link-btn";
 
 declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
+
+export const ConfigsCtx: Context<any> = createContext({
+    postsApiEndpoint: "/blog/api/v1/blog/posts"
+})
 
 window.onload = async () => {
     console.log(window.location.href)
@@ -139,7 +143,11 @@ window.onload = async () => {
 
         /** creazione del container */
         const root: Root = createRoot(searchApp!);
-        root.render(<SearchApp searchValue={q} />);
+        root.render(
+            // <ConfigsCtx.Provider >
+            <SearchApp searchValue={q} />
+            // </ConfigsCtx.Provider>
+        );
     }
 
 
