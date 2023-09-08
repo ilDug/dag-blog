@@ -27,7 +27,7 @@ window.onload = async () => {
     let dcc = new Dcc({
         /** override default configs*/
         policyVersion: new Date("2023-02-08"),
-        cookiePolicyLink: "/privacy/cookies",
+        cookiePolicyLink: "/blog/privacy/cookies",
         diplayRejectAllBtn: false
     });
 
