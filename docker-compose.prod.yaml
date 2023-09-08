@@ -27,10 +27,13 @@ services:
       - default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dagbog.rule=Host(`blog.dagtech.it`)"
+      - "traefik.http.routers.dagbog.rule=Host(`dagtech.it`) && (PathPrefix(`/blog`) || Path(`/`))"
       - "traefik.http.routers.dagbog.entrypoints=websecure"
       - "traefik.http.routers.dagbog.tls=true"
       - "traefik.http.routers.dagbog.tls.certresolver=le"
+      - "traefik.http.middlewares.dagblog_redirect.redirectregex.regex=^https:\\/\\/(dagtech\\.it)\\/?$$"
+      - "traefik.http.middlewares.dagblog_redirect.redirectregex.replacement=https://dagtech.it/blog"
+      - "traefik.http.routers.dagbog.middlewares=dagblog_redirect@docker"    
 
   php:
     container_name: dagblogphp
