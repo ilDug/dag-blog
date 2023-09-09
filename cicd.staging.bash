@@ -20,6 +20,8 @@ IMAGE_WEB=cr.dag.lan/dagblog-web
 IMAGE_PHP=cr.dag.lan/dagblog-php
 DOCKER_HOST=docker1
 
+
+
 # build web
 # docker build . -t $IMAGE_WEB -f Dockerfile.prod-web
 # docker tag $IMAGE_WEB $IMAGE_WEB:latest
