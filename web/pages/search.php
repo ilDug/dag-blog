@@ -12,6 +12,7 @@
     ?>
 
     <!-- STYLES  -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/b4eb529ed9.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/blog/dist/styles.css">
 </head>
 
