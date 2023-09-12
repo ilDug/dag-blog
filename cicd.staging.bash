@@ -19,6 +19,7 @@ trap 'echo "\"${last_command}\" --> EXIT CODE $?."' EXIT
 IMAGE_WEB=cr.dag.lan/dagblog-web
 IMAGE_PHP=cr.dag.lan/dagblog-php
 DOCKER_HOST=docker1
+PROJECT_FOLDER=/docker/dagblog
 
 
 
@@ -34,15 +35,18 @@ docker buildx build . --file Dockerfile.prod-web --tag $IMAGE_WEB --platform lin
 # docker push -a $IMAGE_PHP
 docker buildx build . --file Dockerfile.stage-php --tag $IMAGE_PHP --platform linux/amd64 --push --no-cache
 
+# crea la cartella di destinazione del progetto (se non esiste)
+ssh root@$DOCKER_HOST "mkdir -p $PROJECT_FOLDER"
+
 # copia i file per l'esecuzione del docker compose
-rsync -auvh --progress -e ssh ./docker-compose.stage.yaml $DOCKER_HOST:/docker/dagblog/docker-compose.yaml
-rsync -auvh --progress -e ssh ./assets $DOCKER_HOST:/docker/dagblog/
-# scp ./docker-compose.stage.yaml root@$DOCKER_HOST:/docker/dagblog/docker-compose.yaml
-# scp ./.env root@$DOCKER_HOST:/docker/dagblog/.env
+rsync -auvh --progress -e ssh ./docker-compose.stage.yaml $DOCKER_HOST:$PROJECT_FOLDER/docker-compose.yaml
+rsync -auvh --progress -e ssh ./assets $DOCKER_HOST:$PROJECT_FOLDER/
+# scp ./docker-compose.stage.yaml root@$DOCKER_HOST:$PROJECT_FOLDER/docker-compose.yaml
+# scp ./.env root@$DOCKER_HOST:$PROJECT_FOLDER/.env
 
 # aggiorna i posts da git
-ssh root@$DOCKER_HOST "mkdir -p /docker/dagblog/assets/blog"
-rsync -auvh --progress -e ssh /Volumes/DagStorage/dagtech/posts $DOCKER_HOST:/docker/dagblog/assets/blog/
+ssh root@$DOCKER_HOST "mkdir -p $PROJECT_FOLDER/assets/blog"
+rsync -auvh --progress -e ssh /Volumes/DagStorage/dagtech/posts $DOCKER_HOST:$PROJECT_FOLDER/assets/blog/
 
 # esegue doker compose
 ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB && docker pull $IMAGE_PHP"
