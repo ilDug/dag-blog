@@ -189,19 +189,19 @@ jobs:
             - containerize_web
             # - containerize_api
             # - containerize_cron
+        env:
+            PROJECT_PATH: /apps/dagblog
 
         steps:
             - name: Checkout
               uses: actions/checkout@v3
               with:
                   submodules: "recursive"
-
             - name: Configure SSH
               env:
                   SSH_USER: root
                   SSH_KEY: ${{ secrets.DAGHOST_SSH_PRIVKEY }}
                   SSH_HOST: ${{ secrets.DAGHOST_IP }}
-                  PROJECT_PATH: /apps/dagblog
               run: |
                   mkdir -p ~/.ssh/
                   echo "$SSH_KEY" > ~/.ssh/dag.key
