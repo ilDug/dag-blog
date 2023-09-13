@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 # exit when any command fails
 set -e
 # keep track of the last executed command
@@ -18,37 +17,33 @@ trap 'echo "\"${last_command}\" --> EXIT CODE $?."' EXIT
 
 IMAGE_WEB=cr.dag.lan/dagblog-web
 IMAGE_PHP=cr.dag.lan/dagblog-php
+IMAGE_OLD=cr.dag.lan/dagblog-old
 DOCKER_HOST=docker1
-PROJECT_FOLDER=/docker/dagblog
+PROJECT_PATH=/docker/dagblog
 
-
-
-# build web
 # docker build . -t $IMAGE_WEB -f Dockerfile.prod-web
 # docker tag $IMAGE_WEB $IMAGE_WEB:latest
 # docker push -a $IMAGE_WEB
-docker buildx build . --file Dockerfile.prod-web --tag $IMAGE_WEB --platform linux/amd64 --push --no-cache
 
-#  build php
-# docker build . -t $IMAGE_PHP -f Dockerfile.stage-php
-# docker tag $IMAGE_PHP $IMAGE_PHP:latest
-# docker push -a $IMAGE_PHP
+# build web
+docker buildx build . --file Dockerfile.prod-web --tag $IMAGE_WEB --platform linux/amd64 --push --no-cache
+# build old
+docker buildx build . --file Dockerfile.prod-old --tag $IMAGE_OLD --platform linux/amd64 --push --no-cache
+# build php
 docker buildx build . --file Dockerfile.stage-php --tag $IMAGE_PHP --platform linux/amd64 --push --no-cache
 
 # crea la cartella di destinazione del progetto (se non esiste)
 ssh root@$DOCKER_HOST "mkdir -p $PROJECT_FOLDER"
 
 # copia i file per l'esecuzione del docker compose
-rsync -auvh --progress -e ssh ./docker-compose.stage.yaml $DOCKER_HOST:$PROJECT_FOLDER/docker-compose.yaml
-rsync -auvh --progress -e ssh ./assets $DOCKER_HOST:$PROJECT_FOLDER/
-# scp ./docker-compose.stage.yaml root@$DOCKER_HOST:$PROJECT_FOLDER/docker-compose.yaml
-# scp ./.env root@$DOCKER_HOST:$PROJECT_FOLDER/.env
+rsync -auvh --progress -e ssh ./docker-compose.stage.yaml $DOCKER_HOST:$PROJECT_PATH/docker-compose.yaml
+rsync -auvh --progress -e ssh ./assets $DOCKER_HOST:$PROJECT_PATH/
 
 # aggiorna i posts da git
-ssh root@$DOCKER_HOST "mkdir -p $PROJECT_FOLDER/assets/blog"
-rsync -auvh --progress -e ssh /Volumes/DagStorage/dagtech/posts $DOCKER_HOST:$PROJECT_FOLDER/assets/blog/
+ssh root@$DOCKER_HOST "mkdir -p $PROJECT_PATH/assets/blog"
+rsync -auvh --progress -e ssh /Volumes/DagStorage/dagtech/posts $DOCKER_HOST:$PROJECT_PATH/assets/blog/
 
 # esegue doker compose
-ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB && docker pull $IMAGE_PHP"
-ssh  root@$DOCKER_HOST "cd /docker/dagblog && docker compose up -d --force-recreate --pull always"
-# ssh  root@$DOCKER_HOST "docker image prune -f"
+ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB && docker pull $IMAGE_PHP && docker pull $IMAGE_OLD"
+ssh  root@$DOCKER_HOST "cd $PROJECT_PATH && docker compose up -d --force-recreate --pull always"
+ssh  root@$DOCKER_HOST "docker image prune -f"

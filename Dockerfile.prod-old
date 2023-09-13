@@ -1,0 +1,9 @@
+FROM nginx
+WORKDIR /app
+
+# cartella delle configurazioni
+COPY ./config/nginx/old-redirect.conf /etc/nginx/conf.d/old-redirect.comf
+
+EXPOSE 80
+
+# CMD ["nginx", "-g", "daemon off;"]
