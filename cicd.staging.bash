@@ -17,7 +17,6 @@ trap 'echo "\"${last_command}\" --> EXIT CODE $?."' EXIT
 
 IMAGE_WEB=cr.dag.lan/dagblog-web
 IMAGE_PHP=cr.dag.lan/dagblog-php
-IMAGE_OLD=cr.dag.lan/dagblog-old
 DOCKER_HOST=docker1
 PROJECT_PATH=/docker/dagblog
 
@@ -27,8 +26,6 @@ PROJECT_PATH=/docker/dagblog
 
 # build web
 docker buildx build . --file Dockerfile.prod-web --tag $IMAGE_WEB --platform linux/amd64 --push --no-cache
-# build old
-docker buildx build . --file Dockerfile.prod-old --tag $IMAGE_OLD --platform linux/amd64 --push --no-cache
 # build php
 docker buildx build . --file Dockerfile.stage-php --tag $IMAGE_PHP --platform linux/amd64 --push --no-cache
 
@@ -44,6 +41,6 @@ ssh root@$DOCKER_HOST "mkdir -p $PROJECT_PATH/assets/blog"
 rsync -auvh --progress -e ssh /Volumes/DagStorage/dagtech/posts $DOCKER_HOST:$PROJECT_PATH/assets/blog/
 
 # esegue doker compose
-ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB && docker pull $IMAGE_PHP && docker pull $IMAGE_OLD"
+ssh  root@$DOCKER_HOST "docker pull $IMAGE_WEB && docker pull $IMAGE_PHP"
 ssh  root@$DOCKER_HOST "cd $PROJECT_PATH && docker compose up -d --force-recreate --pull always"
 ssh  root@$DOCKER_HOST "docker image prune -f"

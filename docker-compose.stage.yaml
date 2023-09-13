@@ -50,17 +50,7 @@ services:
       - default
 
 
-  old:
-    container_name: dagblogold
-    image: cr.dag.lan/dagblog-old:latest
-    restart: unless-stopped
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
-    environment:
-      MODE: STAGING
-      TZ: Europe/Rome
-    networks:
-      - default
+
 
 
 #   api:
