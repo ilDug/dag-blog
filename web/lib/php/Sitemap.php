@@ -37,7 +37,7 @@ XML;
         $block  = "<url>";
         $block  .= "<loc>" . $prefix . $url . "</loc>";
         $block  .= "<lastmod>" . $lastmod .  "</lastmod>";
-        $block  .= "<priority>" . $priority . "</priority>";
+        // $block  .= "<priority>" . $priority . "</priority>";
         $block  .= "</url>";
 
         return $block;
