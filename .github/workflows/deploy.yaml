@@ -227,5 +227,6 @@ jobs:
               run: |
                   ssh daghost "docker pull $REGISTRY/$IMAGE_WEB:latest"
                   ssh daghost "docker pull $REGISTRY/$IMAGE_PHP:latest"
+                  ssh daghost "docker pull $REGISTRY/$IMAGE_OLD:latest"
                   ssh daghost "cd $PROJECT_PATH && docker-compose up -d --force-recreate"
                   ssh daghost "docker image prune -f"
