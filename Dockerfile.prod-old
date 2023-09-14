@@ -2,7 +2,7 @@ FROM nginx
 WORKDIR /app
 
 # cartella delle configurazioni
-COPY ./config/nginx/old-redirect.conf /etc/nginx/conf.d/old-redirect.comf
+COPY ./config/nginx/old-redirect.conf /etc/nginx/conf.d/default.comf
 
 EXPOSE 80
 
