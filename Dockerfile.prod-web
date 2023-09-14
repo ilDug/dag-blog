@@ -2,7 +2,7 @@ FROM nginx
 WORKDIR /app
 
 # cartella delle configurazioni
-COPY ./config/nginx/ /etc/nginx/conf.d/
+COPY ./config/nginx/web.conf /etc/nginx/conf.d/web.conf
 
 # cartelle del sito
 COPY ./web/vendor /app/vendor 

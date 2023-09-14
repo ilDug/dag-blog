@@ -27,11 +27,13 @@ services:
       - default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dagblog.rule=Host(`blog.dag.lan`)"
+      - "traefik.http.routers.dagblog.rule=Host(`blog.dag.lan`) && PathPrefix(`/blog`)"
       - "traefik.http.routers.dagblog.entrypoints=websecure"
       - "traefik.http.routers.dagblog.tls=true"
       # - "traefik.http.routers.dagblog.tls.certresolver=le"
-
+      # - "traefik.http.middlewares.dagblog_redirect.redirectregex.regex=^https:\\/\\/(blog\\.dag\\.lan)\\/?$$"
+      # - "traefik.http.middlewares.dagblog_redirect.redirectregex.replacement=https://blog.dag.lan/blog"
+      # - "traefik.http.routers.dagblog.middlewares=dagblog_redirect@docker"    
 
   php:
     container_name: dagblogphp
@@ -46,6 +48,10 @@ services:
       TZ: Europe/Rome
     networks:
       - default
+
+
+
+
 
 #   api:
 #     container_name: dagblogapi

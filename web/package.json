@@ -1,11 +1,11 @@
 {
-    "name": "dag-blog",
+    "name": "blog",
     "version": "1.0.0",
     "description": "another blog ",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "webpack --progress --watch --config webpack.config.js --mode=development --env CONTACTS_ENDPOINT=http://localhost:8220/contacts --env POSTS_ENPOINT=http://localhost:8220/posts",
+        "dev": "webpack --progress --watch --config webpack.config.js --mode=development --env CONTACTS_ENDPOINT=http://localhost:8710/contacts --env POSTS_ENPOINT=http://localhost:8710/posts",
         "build": "webpack  --config  webpack.config.js --mode=production --env CONTACTS_ENDPOINT=/api/contacts  --env POSTS_ENPOINT=/api/posts",
         "tsc": "tsc",
         "serve": "lite-server -c configs/lite-server/bs-config-open.json",
@@ -28,7 +28,6 @@
     },
     "homepage": "https://github.com/ilDug/dag-blog#readme",
     "dependencies": {
-        "@fortawesome/fontawesome-pro": "^6.3.0",
         "@popperjs/core": "^2.11.6",
         "animate.css": "^4.1.1",
         "bootstrap": "^5.2.3",

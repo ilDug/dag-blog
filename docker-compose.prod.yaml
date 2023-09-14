@@ -27,10 +27,13 @@ services:
       - default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dagbog.rule=Host(`blog.dagtech.it`)"
-      - "traefik.http.routers.dagbog.entrypoints=websecure"
-      - "traefik.http.routers.dagbog.tls=true"
-      - "traefik.http.routers.dagbog.tls.certresolver=le"
+      - "traefik.http.routers.dagblog.rule=Host(`dagtech.it`) && PathPrefix(`/blog`) "
+      - "traefik.http.routers.dagblog.entrypoints=websecure"
+      - "traefik.http.routers.dagblog.tls=true"
+      - "traefik.http.routers.dagblog.tls.certresolver=le"
+      # - "traefik.http.middlewares.dagblog_redirect.redirectregex.regex=^https:\\/\\/(dagtech\\.it)\\/?$$"
+      # - "traefik.http.middlewares.dagblog_redirect.redirectregex.replacement=https://dagtech.it/blog"
+      # - "traefik.http.routers.dagblog.middlewares=dagblog_redirect@docker"    
 
   php:
     container_name: dagblogphp
@@ -45,6 +48,25 @@ services:
       TZ: Europe/Rome
     networks:
       - default
+
+
+  old: # tutto quello che ha come indirizzo il vecchio blogdagtech.it
+    container_name: dagblogold
+    image: ghcr.io/ildug/dagblog-old:latest
+    restart: unless-stopped
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      MODE: PRODUCTION
+      TZ: Europe/Rome
+    networks:
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dagblog.rule=Host(`blog.dagtech.it`)"
+      - "traefik.http.routers.dagblog.entrypoints=websecure"
+      - "traefik.http.routers.dagblog.tls=true"
+      - "traefik.http.routers.dagblog.tls.certresolver=le"
 
 #   api:
 #     container_name: dagblogapi
