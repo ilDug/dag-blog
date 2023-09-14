@@ -64,10 +64,10 @@ services:
       - default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dagblog.rule=Host(`blog.dagtech.it`)"
-      - "traefik.http.routers.dagblog.entrypoints=websecure"
-      - "traefik.http.routers.dagblog.tls=true"
-      - "traefik.http.routers.dagblog.tls.certresolver=le"
+      - "traefik.http.routers.dagblogold.rule=Host(`blog.dagtech.it`)"
+      - "traefik.http.routers.dagblogold.entrypoints=websecure"
+      - "traefik.http.routers.dagblogold.tls=true"
+      - "traefik.http.routers.dagblogold.tls.certresolver=le"
 
 #   api:
 #     container_name: dagblogapi
