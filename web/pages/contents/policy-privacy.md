@@ -1,4 +1,4 @@
-Privacy Policy di **blog.dagtech.it**
+Privacy Policy di **dagtech.it**
 ===================================
 
 Questa Applicazione raccoglie alcuni Dati Personali dei propri Utenti.
@@ -240,7 +240,7 @@ Tale livello superiore di protezione è sempre garantito quando il trattamento:
 Cookie Policy
 -------------
 
-Questa Applicazione fa utilizzo di Strumenti di Tracciamento. Per saperne di più, l’Utente può consultare la [Cookie Policy](/privacy/cookies).
+Questa Applicazione fa utilizzo di Strumenti di Tracciamento. Per saperne di più, l’Utente può consultare la [Cookie Policy](/blog/privacy/cookies).
 
 Ulteriori informazioni sul trattamento
 --------------------------------------

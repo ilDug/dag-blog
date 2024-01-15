@@ -4,16 +4,16 @@
 <head>
     <!-- META -->
     <?php
-
     \ilDug\Web\Meta::publish([
         "DAG BLOG - il blog di DagTech",
-        "https://blog.dagtech.it/assets/images/dag-tech-logo-sq.png"
+        "https://dagtech.it/blog/assets/images/dag-tech-logo-sq.png"
     ]);
     \ilDug\Web\Scripts::run(['GOOGLE_ANALYTICS']);
     ?>
 
     <!-- STYLES  -->
-    <link rel="stylesheet" href="/dist/styles.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/b4eb529ed9.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/blog/dist/styles.css">
 </head>
 
 <body>
@@ -39,14 +39,14 @@
                         <div id="home-motto" class="text-start">
 
                             <p class="text-center">
-                                <img src="/assets/images/dag-tech-logo-sq.png" alt="" class="home-logo img-fluid">
+                                <img src="/blog/assets/images/dag-tech-logo-sq.png" alt="" class="home-logo img-fluid">
                             </p>
                             <p>
                                 <em>"La tecnologia cambia velocemente, ma appoggia su solide basi."</em> Articoli, guide e consigli per aiutare gli sviluppatori a trovare soluzioni, ampliare competenze e migliorare l'esperienza di programmazione.
                             </p>
 
                             <p class="mb-3 mt-5 text-center">
-                                <a href="/search" class="btn btn-primary">
+                                <a href="/blog/search" class="btn btn-primary">
                                     <i class="fa-light fa-magnifying-glass me-2 "></i>
                                     Ricerca Articoli
                                 </a>
@@ -80,7 +80,7 @@
 
     <?php include __DIR__ . '/views/footer.php'; ?>
 
-    <script type="text/javascript" src="/dist/bundle.js"></script>
+    <script type="text/javascript" src="/blog/dist/bundle.js"></script>
 </body>
 
 </html>

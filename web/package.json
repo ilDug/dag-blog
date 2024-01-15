@@ -1,18 +1,16 @@
 {
-    "name": "dag-blog",
+    "name": "blog",
     "version": "1.0.0",
     "description": "another blog ",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "webpack --progress --watch --config webpack.config.js --mode=development --env CONTACTS_ENDPOINT=http://localhost:8220/contacts --env POSTS_ENPOINT=http://localhost:8220/posts",
-        "build": "webpack  --config  webpack.config.js --mode=production --env CONTACTS_ENDPOINT=/api/contacts  --env POSTS_ENPOINT=/api/posts",
-        "tsc": "tsc",
-        "serve": "lite-server -c configs/lite-server/bs-config-open.json",
-        "serve:test": "lite-server -c configs/lite-server/bs-config-background.json",
-        "cy:open": "cypress open",
-        "cy:run": "cypress run --browser=chrome",
-        "cy:ci": "start-server-and-test serve:test http://localhost:8080 cy:run"
+        "sass:dev": "sass --watch --update --poll --style=expanded src/styles:dist/styles",
+        "sass:prod": "sass --no-source-map --style=compressed src/styles:dist/styles",
+        "es:dev": "esbuild src/scripts/index.tsx --bundle --watch --sourcemap --outfile=dist/bundle.js",
+        "es:build": "esbuild src/scripts/index.tsx --bundle --minify  --outfile=dist/bundle.js",
+        "clear": "rm -rf dist/*",
+        "dev": "bun run sass:dev & bun run es:dev",
+        "build": "bun run clear & bun run sass:prod & bun run es:build"
     },
     "repository": {
         "type": "git",
@@ -28,38 +26,28 @@
     },
     "homepage": "https://github.com/ilDug/dag-blog#readme",
     "dependencies": {
-        "@fortawesome/fontawesome-pro": "^6.3.0",
         "@popperjs/core": "^2.11.6",
-        "animate.css": "^4.1.1",
         "bootstrap": "^5.2.3",
-        "cypress": "^12.5.1",
         "fuse.js": "^6.6.2",
         "highlight.js": "^11.7.0",
         "js-cookie": "^3.0.1",
         "lodash": "^4.17.21",
+        "lodash-es": "^4.17.21",
+        "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.43.1",
-        "rect": "^1.2.1",
         "rxjs": "^7.8.0",
         "uuid": "^9.0.0"
     },
     "devDependencies": {
         "@types/bootstrap": "^5.2.6",
-        "@types/lodash": "^4.14.191",
+        "@types/lodash-es": "^4.17.12",
         "@types/react": "^18.0.27",
         "@types/react-dom": "^18.0.10",
-        "clean-webpack-plugin": "^4.0.0",
-        "copy-webpack-plugin": "^11.0.0",
-        "css-loader": "^6.7.3",
-        "file-loader": "^6.2.0",
-        "mini-css-extract-plugin": "^2.7.2",
-        "sass": "^1.58.0",
-        "sass-loader": "^13.2.0",
+        "esbuild": "^0.19.11",
+        "prettier": "^3.2.2",
+        "sass": "^1.69.7",
         "style-loader": "^3.3.1",
-        "ts-loader": "^9.4.2",
-        "typescript": "^4.9.5",
-        "webpack": "^5.75.0",
-        "webpack-cli": "^5.0.1",
-        "webpack-dev-server": "^4.11.1"
+        "typescript": "^5.3.3"
     }
 }
