@@ -42,7 +42,7 @@ hljs.registerLanguage('xml', xml);
 import SearchApp from "./components/search-app";
 import ArticleLoveBtn from "./components/article-love-btn";
 import CopyLinkBtn from "./components/article-copy-link-btn";
-import { applyTooltip } from './controllers';
+import { applyOffcanvas, applyTooltip } from './controllers';
 
 export const ConfigsCtx: Context<any> = createContext({
     postsApiEndpoint: "/blog/api/v1/blog/posts"
@@ -79,14 +79,14 @@ window.onload = async () => {
     /**
      * Attiva Bootstrap Offcanvas
      */
-    // document
-    //     .querySelectorAll('.offcanvas')
-    //     .forEach(el => new Offcanvas(el));
+    applyOffcanvas('offcanvas');
+
 
     /**
      * Attiva il typer nella navbar
      */
     DagTyperSetup()
+    
 
     /**
      * traforma il contenuto dello span del file markdown nel titolo 
@@ -180,6 +180,4 @@ window.onload = async () => {
             // </ConfigsCtx.Provider>
         );
     }
-
-
 }

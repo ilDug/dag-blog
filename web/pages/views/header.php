@@ -46,16 +46,16 @@
             <a href="#" id="header-menu-btn" class="header-action-btn">
                 <i class="fal fa-bars"></i>
             </a>
-            <a id="header-main-btn" class="header-action-btn" data-bs-toggle="offcanvas" href="#offcanvasDag" role="button" aria-controls="offcanvasDag">
+            <a id="header-main-btn" class="header-action-btn" oc-open>
                 <i class="fa-brands fa-rebel text-white"></i>
             </a>
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDag" aria-labelledby="offcanvasDagLabel">
+    <div class="offcanvas-right" id="offcanvas">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasDagLabel">Dag Blog</h5>
-            <button type="button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <a oc-close></a>
         </div>
 
         <div class="offcanvas-body p-4 pt-0">
