@@ -23,7 +23,7 @@
                 <p class="mb-0">© 2011 - <?php echo date('Y'); ?> Copyright @ilDug</p>
             </div>
             <div class="col-sm-3 ">
-                <p data-toggle="tooltip" title="Buy me a coffee" class="text-center mb-4 text-muted">
+                <p data-tooltip="Buy me a coffee" class="text-center mb-4 text-muted">
                     <a href="https://www.buymeacoffee.com/ilDug" target="_blank">
                         <span style="width:3rem; display:inline-block;">
                             <img src="/blog/assets/images/bmc-logo.svg" alt="buy me a coffee" class="img-fluid">

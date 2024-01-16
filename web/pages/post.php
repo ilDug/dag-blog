@@ -29,10 +29,10 @@
 
         <div id="sidebar">
             <ul>
-                <li data-toggle="tooltip" title="I love it!">
+                <li data-tooltip="I love it!">
                     <span id="side-love-btn"></span>
                 </li>
-                <li data-toggle="tooltip" title="copy link">
+                <li data-tooltip="copy link">
                     <span id="side-copy-link-btn"></span>
                 </li>
             </ul>

@@ -1,5 +1,5 @@
 // import "../styles/styles.scss"
-// import { Dcc } from './plugins/cookie-consent'
+import { Dcc } from './plugins/cookie-consent'
 // import { Tooltip, Offcanvas } from 'bootstrap';
 
 
@@ -42,6 +42,7 @@ hljs.registerLanguage('xml', xml);
 import SearchApp from "./components/search-app";
 import ArticleLoveBtn from "./components/article-love-btn";
 import CopyLinkBtn from "./components/article-copy-link-btn";
+import { applyTooltip } from './controllers';
 
 export const ConfigsCtx: Context<any> = createContext({
     postsApiEndpoint: "/blog/api/v1/blog/posts"
@@ -56,19 +57,17 @@ window.onload = async () => {
     /**
      * COOKIE CONSENT
      */
-    // let dcc = new Dcc({
-    //     /** override default configs*/
-    //     policyVersion: new Date("2023-02-08"),
-    //     cookiePolicyLink: "/blog/privacy/cookies",
-    //     diplayRejectAllBtn: false
-    // });
+    let dcc = new Dcc({
+        /** override default configs*/
+        policyVersion: new Date("2023-02-08"),
+        cookiePolicyLink: "/blog/privacy/cookies",
+        diplayRejectAllBtn: false
+    });
 
     /**
      * attiva tutti i TOOLTIP
      */
-    // document
-    //     .querySelectorAll("[data-toggle=tooltip]")
-    //     .forEach((el) => new Tooltip(el));
+    applyTooltip();
 
     /**
      * applica hyghlight.js
