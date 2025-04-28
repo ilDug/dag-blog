@@ -36,7 +36,7 @@ services:
     volumes:
       - ./web:/app # cartella del sito
       - ./assets:/app/assets # collegamento ai file statici
-      - ./config/nginx:/etc/nginx/conf.d
+      - ./config/nginx/web.conf:/etc/nginx/conf.d/default.conf
       # - /etc/timezone:/etc/timezone:ro
       # - /etc/localtime:/etc/localtime:ro
     networks:

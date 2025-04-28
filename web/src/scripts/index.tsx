@@ -1,18 +1,55 @@
-import "../styles/styles.scss"
+// import "../styles/styles.scss"
 import { Dcc } from './plugins/cookie-consent'
-import { Tooltip, Offcanvas } from 'bootstrap';
-import hljs from "highlight.js";
-import 'highlight.js/scss/github-dark-dimmed.scss';
+// import { Tooltip, Offcanvas } from 'bootstrap';
+
+
 import { DagTyperSetup } from "./typer";
 
-import React, { Context } from "react";
+import React, { Context, createContext } from "react";
 import { createRoot, Root } from "react-dom/client";
+
+/** HIGHLIGHT ******************************************** */
+// import hljs from "highlight.js";
+import hljs from 'highlight.js/lib/core';
+// import 'highlight.js/scss/github-dark-dimmed.scss';
+
+import bash from 'highlight.js/lib/languages/bash';
+hljs.registerLanguage('bash', bash);
+import dockerfile from 'highlight.js/lib/languages/dockerfile';
+hljs.registerLanguage('dockerfile', dockerfile);
+import http from 'highlight.js/lib/languages/http';
+hljs.registerLanguage('http', http);
+import ini from 'highlight.js/lib/languages/ini';
+hljs.registerLanguage('ini', ini);
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+import markdown from 'highlight.js/lib/languages/markdown';
+hljs.registerLanguage('markdown', markdown);
+import php from 'highlight.js/lib/languages/php';
+hljs.registerLanguage('php', php);
+import python from 'highlight.js/lib/languages/python';
+hljs.registerLanguage('python', python);
+import scss from 'highlight.js/lib/languages/scss';
+hljs.registerLanguage('scss', scss);
+import typescript from 'highlight.js/lib/languages/typescript';
+hljs.registerLanguage('typescript', typescript);
+import xml from 'highlight.js/lib/languages/xml';
+hljs.registerLanguage('xml', xml);
+/********************************************** */
+
+
 
 import SearchApp from "./components/search-app";
 import ArticleLoveBtn from "./components/article-love-btn";
 import CopyLinkBtn from "./components/article-copy-link-btn";
+import { applyOffcanvas, applyTooltip } from './controllers';
 
-declare const ENV: { CONTACTS_ENDPOINT: string, POSTS_ENPOINT: string };
+export const ConfigsCtx: Context<any> = createContext({
+    postsApiEndpoint: "/blog/api/v1/blog/posts"
+})
+
+
+
 
 window.onload = async () => {
     console.log(window.location.href)
@@ -23,16 +60,14 @@ window.onload = async () => {
     let dcc = new Dcc({
         /** override default configs*/
         policyVersion: new Date("2023-02-08"),
-        cookiePolicyLink: "/privacy/cookies",
+        cookiePolicyLink: "/blog/privacy/cookies",
         diplayRejectAllBtn: false
     });
 
     /**
      * attiva tutti i TOOLTIP
      */
-    document
-        .querySelectorAll("[data-toggle=tooltip]")
-        .forEach((el) => new Tooltip(el));
+    applyTooltip();
 
     /**
      * applica hyghlight.js
@@ -44,14 +79,14 @@ window.onload = async () => {
     /**
      * Attiva Bootstrap Offcanvas
      */
-    document
-        .querySelectorAll('.offcanvas')
-        .forEach(el => new Offcanvas(el));
+    applyOffcanvas('offcanvas');
+
 
     /**
      * Attiva il typer nella navbar
      */
     DagTyperSetup()
+    
 
     /**
      * traforma il contenuto dello span del file markdown nel titolo 
@@ -139,8 +174,10 @@ window.onload = async () => {
 
         /** creazione del container */
         const root: Root = createRoot(searchApp!);
-        root.render(<SearchApp searchValue={q} />);
+        root.render(
+            // <ConfigsCtx.Provider >
+            <SearchApp searchValue={q} />
+            // </ConfigsCtx.Provider>
+        );
     }
-
-
 }

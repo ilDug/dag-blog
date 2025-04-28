@@ -61,7 +61,7 @@ $router->get('/{post_id}/{title}', function ($post_id) {
         require __DIR__ . '/pages/post.php';
 
     } catch (\Exception $err) {
-        echo "<script> location.href='/post-not-found'; </script>";
+        echo "<script> location.href='/blog/post-not-found'; </script>";
     }
 });    
 
